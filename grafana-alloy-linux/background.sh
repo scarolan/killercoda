@@ -25,7 +25,7 @@ cat <<'EOF' >> ~/.bash_profile
 # fall back to a simpler ASCII prompt with basic colors to avoid font issues.
 # Otherwise, source a fancy Powerline-style prompt from ~/.fancy-prompt.sh
 # -----------------------------------------------------------------------------
-if [[ "\$TERM" == "xterm-color" ]]; then
+if [[ "$TERM" == "xterm-color" ]]; then
   export PS1="\[\e[1;36m\]\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] \$ "
 else
   source ~/.fancy-prompt.sh
