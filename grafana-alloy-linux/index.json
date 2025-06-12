@@ -9,6 +9,6 @@
     }
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "scarolan/grafana-ubuntu-workstation:v0.1.0"
   }
 }
