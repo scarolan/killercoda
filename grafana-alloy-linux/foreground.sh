@@ -1,6 +1,5 @@
 #!/bin/bash
-set -euxo pipefail  # Exit on error, show commands
+set -euo pipefail  # Exit on error, show commands
 
-# This has to be done after the background script completes.
-sleep 3
-source .bashrc
+# This script runs after the background script completes.
+exit 0
