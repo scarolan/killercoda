@@ -1,10 +1,11 @@
 #!/bin/bash
 set -euxo pipefail  # Exit on error, show commands
 
-# ------------------------------------------------------------------------------
-# Download Grafana Alloy VSIX to current directory
-# ------------------------------------------------------------------------------
+# Enable fancy prompt
+wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
+echo "source ~/.fancy-prompt.sh" >> ~/.bashrc
 
+# Download Grafana Alloy VSIX to current directory
 VSIX_URL="https://github.com/grafana/vscode-alloy/releases/download/v0.2.0/grafana-alloy-0.2.0.vsix"
 VSIX_NAME="grafana-alloy-0.2.0.vsix"
 
