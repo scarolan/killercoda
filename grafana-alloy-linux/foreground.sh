@@ -1,3 +1,3 @@
 #!/bin/bash
-# This script runs after the background script completes.
-# Commands will be executed in the foreground and visible to the user.
+echo "Please hit enter to reload the terminal."
+exit 0
