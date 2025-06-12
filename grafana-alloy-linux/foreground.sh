@@ -32,7 +32,7 @@ RESET=$'\033[0m'
 
 clear
 echo -e "${YELLOW}${GRAFANA_LOGO}${RESET}"
-echo "Please hit enter to continue..."
+echo "Welcome to your Grafana training environment. Please hit enter to start the lab."
 )
-sleep 3
+sleep 1
 exit 0
