@@ -1,5 +1,12 @@
 {
-  "title": "Ubuntu simple",
+  "title": "Foreground Background Scripts",
+  "description": "Run setup scripts in the background",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    }
+  },
   "backend": {
     "imageid": "ubuntu"
   }
