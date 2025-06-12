@@ -1,6 +1,12 @@
 #!/bin/bash
 set -euxo pipefail  # Exit on error, show commands
 
+# Update apt and install necessary packages
+mkdir -p /etc/apt/keyrings/
+wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | tee /etc/apt/keyrings/grafana.gpg > /dev/null
+echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | tee /etc/apt/sources.list.d/grafana.list
+apt -y update
+
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
 echo "source ~/.fancy-prompt.sh" >> ~/.bashrc
