@@ -25,9 +25,12 @@ tLLLLLLLLLLLLLl       tLt              LLLLLt
                                LGGGt
                                   g
 EOF
-YELLOW='\033[1;33m'
-RESET='\033[0m'
-) && clear
+)
+
+YELLOW=$'\033[38;5;208m'
+RESET=$'\033[0m'
+
+clear
 echo -e "${YELLOW}${GRAFANA_LOGO}${RESET}"
 echo "Please hit enter to continue..."
-
+)
