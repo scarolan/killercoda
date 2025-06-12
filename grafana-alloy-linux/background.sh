@@ -32,4 +32,4 @@ else
 fi
 EOF
 
-exit 0
+echo "source ~/.bashrc" >> ~/.bash_profile
