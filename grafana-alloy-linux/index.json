@@ -1,6 +1,6 @@
 {
   "title": "Monitor Ubuntu with Grafana Cloud",
-  "description": "Run setup scripts in the background",
+  "description": "Learn how to monitor a Linux server with Grafana Alloy and Grafana Cloud.",
   "details": {
     "intro": {
       "text": "intro.md",
