@@ -17,7 +17,7 @@ echo "✅ Downloaded $VSIX_NAME to $(pwd)"
 
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
-cat <<'EOF' >> ~/.bash_profile
+cat <<'EOF' >> ~/.bashrc
 
 # -----------------------------------------------------------------------------
 # Set prompt based on terminal capabilities
