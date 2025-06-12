@@ -1,5 +1,6 @@
 #!/bin/bash
 set -euo pipefail  # Exit on error, show commands
+sleep 3
 
 # This script runs after the background script completes.
 if [[ "\$TERM" == "xterm-color" ]]; then
