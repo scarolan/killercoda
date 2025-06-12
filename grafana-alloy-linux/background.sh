@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e  # Exit immediately if any command fails
+set -euxo pipefail  # Exit immediately if any command fails
 
 # ------------------------------------------------------------------------------
 # Grafana Alloy VS Code Extension Installer for Killercoda
