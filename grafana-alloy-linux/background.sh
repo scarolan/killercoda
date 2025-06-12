@@ -1,23 +1,14 @@
 #!/bin/bash
-set -euxo pipefail  # Exit immediately if any command fails
+set -euxo pipefail  # Exit on error, show commands
 
 # ------------------------------------------------------------------------------
-# Install Grafana Alloy VSIX into Theia
+# Download Grafana Alloy VSIX to current directory
 # ------------------------------------------------------------------------------
 
 VSIX_URL="https://github.com/grafana/vscode-alloy/releases/download/v0.2.0/grafana-alloy-0.2.0.vsix"
 VSIX_NAME="grafana-alloy-0.2.0.vsix"
-EXT_DIR="$HOME/.theia/extensions/grafana-alloy-0.2.0.vsix"
 
-# Download and unzip to match the UI install path
-mkdir -p "$EXT_DIR"
-cd /tmp
-curl -sLO "$VSIX_URL"
+# Download the VSIX file using wget
+wget -q "$VSIX_URL" -O "$VSIX_NAME"
 
-echo "📦 Unzipping VSIX to $EXT_DIR..."
-unzip -q "$VSIX_NAME" -d "$EXT_DIR"
-
-rm "$VSIX_NAME"
-
-echo "✅ Extension installed to $EXT_DIR"
-echo "🔁 Reload Theia to activate it (Ctrl+Shift+P → Reload Window)."
+echo "✅ Downloaded $VSIX_NAME to $(pwd)"
