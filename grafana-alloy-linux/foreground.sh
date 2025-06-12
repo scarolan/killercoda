@@ -34,3 +34,4 @@ clear
 echo -e "${YELLOW}${GRAFANA_LOGO}${RESET}"
 echo "Please hit enter to continue..."
 )
+exit 0
