@@ -1,23 +1,6 @@
 #!/bin/bash
 set -euxo pipefail  # Exit on error, show commands
 
-# Enable fancy prompt
-wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
-cat <<'EOF' >> ~/.bashrc
-
-# -----------------------------------------------------------------------------
-# Set prompt based on terminal capabilities
-# If running inside Killercoda's Theia terminal (TERM=xterm-color),
-# fall back to a simpler ASCII prompt with basic colors to avoid font issues.
-# Otherwise, source a fancy Powerline-style prompt from ~/.fancy-prompt.sh
-# -----------------------------------------------------------------------------
-if [[ "$TERM" == "xterm-color" ]]; then
-  export PS1="\[\e[1;36m\]\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] \$ "
-else
-  source ~/.fancy-prompt.sh
-fi
-EOF
-
 # Update apt and install necessary packages
 mkdir -p /etc/apt/keyrings/
 wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | tee /etc/apt/keyrings/grafana.gpg > /dev/null
@@ -40,3 +23,20 @@ echo "✅ Downloaded $VSIX_NAME to $(pwd)"
 
 # Create a working directory for the student
 mkdir workspace
+
+# Enable fancy prompt
+wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
+cat <<'EOF' >> ~/.bashrc
+
+# -----------------------------------------------------------------------------
+# Set prompt based on terminal capabilities
+# If running inside Killercoda's Theia terminal (TERM=xterm-color),
+# fall back to a simpler ASCII prompt with basic colors to avoid font issues.
+# Otherwise, source a fancy Powerline-style prompt from ~/.fancy-prompt.sh
+# -----------------------------------------------------------------------------
+if [[ "$TERM" == "xterm-color" ]]; then
+  export PS1="\[\e[1;36m\]\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] \$ "
+else
+  source ~/.fancy-prompt.sh
+fi
+EOF
