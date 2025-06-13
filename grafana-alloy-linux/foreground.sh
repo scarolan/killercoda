@@ -55,6 +55,8 @@ EOF
 EOF
   )
 
+  systemctl start grafana-server
+  systemctl start alloy
   clear
   echo -e "${ORANGE}${GRAFANA_LOGO}${RESET}"
   echo -e "${YELLOW}${GRAFANA_NAME}${RESET}"

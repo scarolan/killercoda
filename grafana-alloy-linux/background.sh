@@ -9,8 +9,6 @@ apt -y update
 
 # Install Grafana and Alloy
 apt -y install grafana alloy
-systemctl start grafana-server
-systemctl start alloy
 
 # Fix the Alloy config so Killercoda can reach it
 sudo sed -i -e '/^CUSTOM_ARGS=/s#".*"#"--server.http.listen-addr=0.0.0.0:12345"#' /etc/default/alloy
