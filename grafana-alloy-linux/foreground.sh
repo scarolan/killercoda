@@ -1,3 +1,5 @@
+set +x
+
 # Wait until 'setup-complete' appears in ~/.bashrc
 echo -n "Still setting up, please wait"
 dots=""
