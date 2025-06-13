@@ -1,4 +1,4 @@
-echo -n "Still setting up, please wait"
+echo "Still setting up, please wait"
 
 dots=""
 while ! tail -n1 ~/.bashrc 2>/dev/null | grep -q "setup-complete"; do
