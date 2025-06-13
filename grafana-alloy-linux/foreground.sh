@@ -50,5 +50,4 @@ EOF
   echo -e "${GREEN}Welcome to your Grafana training environment. Please hit enter to start the lab.${RESET}"
 ) >/dev/tty
 
-read
 exit 0
