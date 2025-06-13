@@ -45,6 +45,5 @@ clear
 echo -e "${YELLOW}${GRAFANA_LOGO}${RESET}"
 echo -e "${YELLOW}${GRAFANA_NAME}${RESET}"
 echo -e "${GREEN}Welcome to your Grafana training environment. Please hit enter to start the lab.${RESET}"
-)
 sleep 1
 exit 0
