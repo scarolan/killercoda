@@ -39,4 +39,5 @@ if [[ "$TERM" == "xterm-color" ]]; then
 else
   source ~/.fancy-prompt.sh
 fi
+# setup-complete
 EOF
