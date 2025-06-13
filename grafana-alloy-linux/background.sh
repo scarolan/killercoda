@@ -7,6 +7,12 @@ wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | tee /etc/apt/keyr
 echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | tee /etc/apt/sources.list.d/grafana.list
 apt -y update
 
+# Install Grafana and Alloy
+apt -y install grafana alloy
+
+# Fix the Alloy config so Killercoda can reach it
+sudo sed -i -e '/^CUSTOM_ARGS=/s#".*"#"--server.http.listen-addr=0.0.0.0:12345"#' /etc/default/alloy
+
 # Download Grafana Alloy VSIX to current directory
 VSIX_URL="https://github.com/grafana/vscode-alloy/releases/download/v0.2.0/grafana-alloy-0.2.0.vsix"
 VSIX_NAME="grafana-alloy-0.2.0.vsix"
