@@ -1,4 +1,3 @@
-(
 GRAFANA_NAME=$(cat <<'EOF'
   _____            __                    _           _         
  / ____|          / _|                  | |         | |        
@@ -41,7 +40,6 @@ YELLOW=$'\033[38;5;208m'
 ORANGE=$'\033[38;5;208m'
 GREEN=$'\033[38;5;82m'
 RESET=$'\033[0m'
-)
 
 clear
 echo -e "${YELLOW}${GRAFANA_LOGO}${RESET}"
