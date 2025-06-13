@@ -60,6 +60,7 @@ EOF
   clear
   echo -e "${ORANGE}${GRAFANA_LOGO}${RESET}"
   echo -e "${YELLOW}${GRAFANA_NAME}${RESET}"
+  echo -e ""
   echo -e "${GREEN}Welcome to your Grafana training environment. Please hit enter to start the lab.${RESET}"
 ) >/dev/tty
 exit 0
