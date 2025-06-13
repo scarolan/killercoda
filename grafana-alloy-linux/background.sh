@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail  # Exit on error, show commands
+set -euo pipefail  # Exit on error, show commands
 
 # Update apt and install necessary packages
 mkdir -p /etc/apt/keyrings/
