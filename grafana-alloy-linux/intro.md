@@ -1,3 +1,5 @@
+![Grot - the Grafana Dino Robot Mascot](./images/grot.png)
+
 This is an interactive lab environment where you can experiment with Grafana and the Alloy agent.
 
 When the lab environment is done setting up you will see the Grafana logo in your terminal.
