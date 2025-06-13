@@ -1,4 +1,4 @@
-![Grot - the Grafana Dino Robot Mascot](./images/grot.png)
+<img src="./images/grot.png" alt="Grot - the Grafana Dino Robot Mascot" style="float: left; margin: 0 15px 15px 0; max-width: 200px;" />
 
 This is an interactive lab environment where you can experiment with Grafana and the Alloy agent.
 
