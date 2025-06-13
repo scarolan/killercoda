@@ -1,4 +1,14 @@
 (
+GRAFANA_NAME=$(cat <<'EOF'
+  _____            __                    _           _         
+ / ____|          / _|                  | |         | |        
+| |  __ _ __ __ _| |_ __ _ _ __   __ _  | |     __ _| |__  ___ 
+| | |_ | '__/ _` |  _/ _` | '_ \ / _` | | |    / _` | '_ \/ __|
+| |__| | | | (_| | || (_| | | | | (_| | | |___| (_| | |_) \__ \
+ \_____|_|  \__,_|_| \__,_|_| |_|\__,_| |______\__,_|_.__/|___/
+EOF
+)
+
 GRAFANA_LOGO=$(cat <<'EOF'
                         ltmg
                        tmmmmtl
@@ -24,23 +34,17 @@ tLLLLLLLLLLLLLl       tLt              LLLLLt
             GGGGGGL         gGGGGGGGL
                                LGGGt
                                   g
-  _____            __                    _           _         
- / ____|          / _|                  | |         | |        
-| |  __ _ __ __ _| |_ __ _ _ __   __ _  | |     __ _| |__  ___ 
-| | |_ | '__/ _` |  _/ _` | '_ \ / _` | | |    / _` | '_ \/ __|
-| |__| | | | (_| | || (_| | | | | (_| | | |___| (_| | |_) \__ \
- \_____|_|  \__,_|_| \__,_|_| |_|\__,_| |______\__,_|_.__/|___/
 EOF
-)
 
 YELLOW=$'\033[38;5;208m'
 ORANGE=$'\033[38;5;208m'
+GREEN=$'\033[38;5;82m'
 RESET=$'\033[0m'
 
 clear
 echo -e "${YELLOW}${GRAFANA_LOGO}${RESET}"
-toilet -f big "Grafana Labs" | sed "s/^/${ORANGE}/" && echo -e "${RESET}"
-echo "Welcome to your Grafana training environment. Please hit enter to start the lab."
+echo -e "${YELLOW}${GRAFANA_NAME}${RESET}"
+echo -e "${GREEN}Welcome to your Grafana training environment. Please hit enter to start the lab.${RESET}"
 )
 sleep 1
 exit 0
