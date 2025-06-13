@@ -51,3 +51,4 @@ EOF
 ) >/dev/tty
 
 read
+exit 0
