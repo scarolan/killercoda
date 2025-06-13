@@ -1,6 +1,6 @@
 {
-  "title": "Monitor Ubuntu with Grafana Cloud",
-  "description": "Learn how to monitor a Linux server with Grafana Alloy and Grafana Cloud.",
+  "title": "Grafana Lab Environment",
+  "description": "This is an interactive lab environment for Grafana users and admins.",
   "details": {
     "intro": {
       "text": "intro.md",
