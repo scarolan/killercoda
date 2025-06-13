@@ -28,10 +28,12 @@ EOF
 )
 
 YELLOW=$'\033[38;5;208m'
+ORANGE=$'\033[38;5;208m'
 RESET=$'\033[0m'
 
 clear
 echo -e "${YELLOW}${GRAFANA_LOGO}${RESET}"
+toilet -f big "Grafana Labs" | sed "s/^/${ORANGE}/" && echo -e "${RESET}"
 echo "Welcome to your Grafana training environment. Please hit enter to start the lab."
 )
 sleep 1
