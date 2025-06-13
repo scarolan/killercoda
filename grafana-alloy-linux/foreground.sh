@@ -7,6 +7,7 @@ GRAFANA_NAME=$(cat <<'EOF'
 | |__| | | | (_| | || (_| | | | | (_| | | |___| (_| | |_) \__ \
  \_____|_|  \__,_|_| \__,_|_| |_|\__,_| |______\__,_|_.__/|___/
 EOF
+)
 
 GRAFANA_LOGO=$(cat <<'EOF'
                         ltmg
@@ -34,6 +35,7 @@ tLLLLLLLLLLLLLl       tLt              LLLLLt
                                LGGGt
                                   g
 EOF
+)
 
 YELLOW=$'\033[38;5;208m'
 ORANGE=$'\033[38;5;208m'
