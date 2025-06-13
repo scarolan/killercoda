@@ -15,6 +15,9 @@ VSIX_NAME="grafana-alloy-0.2.0.vsix"
 wget -q "$VSIX_URL" -O "$VSIX_NAME"
 echo "✅ Downloaded $VSIX_NAME to $(pwd)"
 
+# Create a working directory for the student
+mkdir workspace
+
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
 cat <<'EOF' >> ~/.bashrc

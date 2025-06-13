@@ -10,5 +10,8 @@
   },
   "backend": {
     "imageid": "ubuntu"
+  },
+  "editor": {
+    "location": "/root/workspace"
   }
 }
