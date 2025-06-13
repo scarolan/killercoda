@@ -1,13 +1,12 @@
-set +x
-
-# Wait until 'setup-complete' appears in ~/.bashrc
 echo -n "Still setting up, please wait"
+
 dots=""
 while ! tail -n1 ~/.bashrc 2>/dev/null | grep -q "setup-complete"; do
   dots+="."
   echo -n "${dots}"
   sleep 1
 done
+
 echo " ✅ ready!"
 
 # Run silently, only show final output
