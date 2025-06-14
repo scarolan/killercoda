@@ -41,6 +41,29 @@ for vsix_file in *.vsix; do
 done
 cd ..
 
+# Overwrite the ~/.theia/settings.json file with our desired settings
+cat > ~/.theia/settings.json << 'EOF'
+{
+  "files.enableTrash": false,
+  "editor.autoSave": "on",
+  "editor.formatOnSave": false,
+  "problems.decorations.tabbar.enabled": false,
+  "problems.autoReveal": false,
+  "preview.openByDefault": true,
+  "workbench.colorTheme": "Dracula Theme",
+  "window.menuBarVisibility": "compact",
+  "editor.suggest.hideStatusBar": false,
+  "workbench.statusBar.visible": false,
+  "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true,
+      "**/filesystem**": true
+  },
+  "workbench.iconTheme": "vscode-icons"
+}
+EOF
+
 # Create a function to bounce the Theia process
 # Function to restart the Theia process
 restart_theia() {
