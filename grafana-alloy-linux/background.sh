@@ -58,7 +58,7 @@ restart_theia() {
   fi
   
   echo "Starting Theia process in the background..."
-  nohup /opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js /root/workspace --hostname=0.0.0.0 --port 40205 > /dev/null 2>&1 &
+  nohup /opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js /root --hostname=0.0.0.0 --port 40205 > /dev/null 2>&1 &
   echo "Theia restarted with PID $!"
 }
 
