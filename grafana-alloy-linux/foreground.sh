@@ -65,5 +65,4 @@ EOF
   echo -e ""
   echo -e "${GREEN}Welcome to your Grafana training environment.${RESET}"
 ) >/dev/tty
-touch .theia/settings.json
 source .bashrc

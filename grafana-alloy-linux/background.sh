@@ -41,9 +41,6 @@ for vsix_file in *.vsix; do
 done
 cd ..
 
-# Create the workspace directory if it doesn't exist
-mkdir -p /root/workspace
-
 # Function to restart the Theia process in the /root/workspace directory
 restart_theia() {
   echo "Looking for Theia process..."
