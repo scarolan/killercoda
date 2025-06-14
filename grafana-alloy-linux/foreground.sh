@@ -65,5 +65,4 @@ EOF
   echo -e ""
   echo -e "${GREEN}Welcome to your Grafana training environment. Please hit enter to start the lab.${RESET}"
 ) >/dev/tty
-touch .theia/settings.json
-# exit 0
+source .bashrc
