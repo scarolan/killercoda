@@ -101,5 +101,9 @@ if [[ "$TERM" == "xterm-color" ]]; then
 else
   source ~/.fancy-prompt.sh
 fi
+
+# Create an alias to make it easy to reload Theia settings
+alias reload-theia='touch ~/.theia/settings.json'
+
 # setup-complete
 EOF
