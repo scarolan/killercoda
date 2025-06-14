@@ -19,7 +19,6 @@ declare -A VSIX_FILES=(
   ["dracula-theme.theme-dracula-2.25.1.vsix"]="https://open-vsx.org/api/dracula-theme/theme-dracula/2.25.1/file/dracula-theme.theme-dracula-2.25.1.vsix"
   ["jdinhlife.gruvbox-1.28.0.vsix"]="https://open-vsx.org/api/jdinhlife/gruvbox/1.28.0/file/jdinhlife.gruvbox-1.28.0.vsix"
   ["PKief.material-icon-theme-5.23.0.vsix"]="https://open-vsx.org/api/PKief/material-icon-theme/5.23.0/file/PKief.material-icon-theme-5.23.0.vsix"
-  ["vscode-icons-team.vscode-icons-12.13.0.vsix"]="https://open-vsx.org/api/vscode-icons-team/vscode-icons/12.13.0/file/vscode-icons-team.vscode-icons-12.13.0.vsix"
 )
 
 # Create downloads directory and Theia extensions directory
@@ -41,6 +40,31 @@ for vsix_file in *.vsix; do
   unzip -q "$vsix_file" -d ~/.theia/extensions/"$dir_name"
 done
 cd ..
+
+# Overwrite the ~/.theia/settings.json file with our settings
+# Overwrite the ~/.theia/settings.json file with our settings
+mkdir -p ~/.theia
+cat > ~/.theia/settings.json << 'EOF'
+{
+  "files.enableTrash": false,
+  "editor.autoSave": "on",
+  "editor.formatOnSave": false,
+  "problems.decorations.tabbar.enabled": false,
+  "problems.autoReveal": false,
+  "preview.openByDefault": true,
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "window.menuBarVisibility": "compact",
+  "editor.suggest.hideStatusBar": false,
+  "workbench.statusBar.visible": false,
+  "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true,
+      "**/filesystem**": true
+  },
+  "workbench.iconTheme": "material-icon-theme"
+}
+EOF
 
 # Function to restart the Theia process
 restart_theia() {
