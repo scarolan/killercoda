@@ -17,6 +17,10 @@ sudo sed -i -e '/^CUSTOM_ARGS=/s#".*"#"--server.http.listen-addr=0.0.0.0:12345"#
 declare -A VSIX_FILES=(
   ["grafana-alloy-0.2.0.vsix"]="https://github.com/grafana/vscode-alloy/releases/download/v0.2.0/grafana-alloy-0.2.0.vsix"
   ["dracula-theme.theme-dracula-2.25.1.vsix"]="https://open-vsx.org/api/dracula-theme/theme-dracula/2.25.1/file/dracula-theme.theme-dracula-2.25.1.vsix"
+  ["PKief.material-icon-theme-5.23.0.vsix"]="https://open-vsx.org/api/PKief/material-icon-theme/5.23.0/file/PKief.material-icon-theme-5.23.0.vsix"
+  ["jdinhlife.gruvbox-1.28.0.vsix"]="https://open-vsx.org/api/jdinhlife/gruvbox/1.28.0/file/jdinhlife.gruvbox-1.28.0.vsix"
+  ["ms-python.python-2025.4.0.vsix"]="https://open-vsx.org/api/ms-python/python/2025.4.0/file/ms-python.python-2025.4.0.vsix"
+  ["redhat.java-1.43.2025061208@linux-x64.vsix"]="https://open-vsx.org/api/redhat/java/linux-x64/1.43.2025061208/file/redhat.java-1.43.2025061208@linux-x64.vsix"
 )
 
 # Create downloads directory and Theia extensions directory
