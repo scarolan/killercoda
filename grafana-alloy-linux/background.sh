@@ -61,29 +61,6 @@ restart_theia() {
 # Restart Theia to apply changes
 restart_theia
 
-# Overwrite the ~/.theia/settings.json file with our settings
-mkdir -p ~/.theia
-cat > ~/.theia/settings.json << 'EOF'
-{
-  "files.enableTrash": false,
-  "editor.autoSave": "on",
-  "editor.formatOnSave": false,
-  "problems.decorations.tabbar.enabled": false,
-  "problems.autoReveal": false,
-  "preview.openByDefault": true,
-  "workbench.colorTheme": "Gruvbox Dark Hard",
-  "window.menuBarVisibility": "compact",
-  "editor.suggest.hideStatusBar": false,
-  "workbench.statusBar.visible": false,
-  "files.watcherExclude": {
-      "**/.git/objects/**": true,
-      "**/.git/subtree-cache/**": true,
-      "**/node_modules/**": true,
-      "**/filesystem**": true
-  }
-}
-EOF
-
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
 cat <<'EOF' >> ~/.bashrc
@@ -99,9 +76,6 @@ if [[ "$TERM" == "xterm-color" ]]; then
 else
   source ~/.fancy-prompt.sh
 fi
-
-# Create an alias to make it easy to reload Theia settings
-alias reload-theia='touch ~/.theia/settings.json'
 
 # setup-complete
 EOF
