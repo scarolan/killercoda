@@ -18,7 +18,6 @@ declare -A VSIX_FILES=(
   ["grafana-alloy-0.2.0.vsix"]="https://github.com/grafana/vscode-alloy/releases/download/v0.2.0/grafana-alloy-0.2.0.vsix"
   ["dracula-theme.theme-dracula-2.25.1.vsix"]="https://open-vsx.org/api/dracula-theme/theme-dracula/2.25.1/file/dracula-theme.theme-dracula-2.25.1.vsix"
   ["Catppuccin.catppuccin-vsc-3.17.0.vsix"]="https://open-vsx.org/api/Catppuccin/catppuccin-vsc/3.17.0/file/Catppuccin.catppuccin-vsc-3.17.0.vsix"
-  ["vscode-icons-team.vscode-icons-12.13.0.vsix"]="https://open-vsx.org/api/vscode-icons-team/vscode-icons/12.13.0/file/vscode-icons-team.vscode-icons-12.13.0.vsix"
 )
 
 # Create downloads directory and Theia extensions directory
@@ -41,7 +40,6 @@ for vsix_file in *.vsix; do
 done
 cd ..
 
-# Create a function to bounce the Theia process
 # Function to restart the Theia process
 restart_theia() {
   echo "Looking for Theia process..."
