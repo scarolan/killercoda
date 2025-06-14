@@ -58,7 +58,6 @@ EOF
   # Put any startup commands you need here
   systemctl start grafana-server
   systemctl start alloy
-  touch .theia/settings.json
   # Next we clear the screen and print the welcome message
   clear
   echo -e "${ORANGE}${GRAFANA_LOGO}${RESET}"
@@ -66,4 +65,5 @@ EOF
   echo -e ""
   echo -e "${GREEN}Welcome to your Grafana training environment. Please hit enter to start the lab.${RESET}"
 ) >/dev/tty
-exit 0
+touch .theia/settings.json
+# exit 0
