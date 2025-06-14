@@ -13,16 +13,55 @@ apt -y install grafana alloy
 # Fix the Alloy config so Killercoda can reach it
 sudo sed -i -e '/^CUSTOM_ARGS=/s#".*"#"--server.http.listen-addr=0.0.0.0:12345"#' /etc/default/alloy
 
-# Download Grafana Alloy VSIX to current directory
-VSIX_URL="https://github.com/grafana/vscode-alloy/releases/download/v0.2.0/grafana-alloy-0.2.0.vsix"
-VSIX_NAME="grafana-alloy-0.2.0.vsix"
+# Define a list of VSIX files to download
+declare -A VSIX_FILES=(
+  ["grafana-alloy-0.2.0.vsix"]="https://github.com/grafana/vscode-alloy/releases/download/v0.2.0/grafana-alloy-0.2.0.vsix"
+  ["dracula-theme.theme-dracula-2.25.1.vsix"]="https://open-vsx.org/api/dracula-theme/theme-dracula/2.25.1/file/dracula-theme.theme-dracula-2.25.1.vsix"
+  ["Catppuccin.catppuccin-vsc-3.17.0.vsix"]="https://open-vsx.org/api/Catppuccin/catppuccin-vsc/3.17.0/file/Catppuccin.catppuccin-vsc-3.17.0.vsix"
+  ["vscode-icons-team.vscode-icons-12.13.0.vsix"]="https://open-vsx.org/api/vscode-icons-team/vscode-icons/12.13.0/file/vscode-icons-team.vscode-icons-12.13.0.vsix"
+)
 
-# Download the VSIX file using wget
-wget -q "$VSIX_URL" -O "$VSIX_NAME"
-echo "✅ Downloaded $VSIX_NAME to $(pwd)"
+# Create downloads directory and Theia extensions directory
+mkdir -p downloads
+mkdir -p ~/.theia/extensions
 
-# Create a working directory for the student
-mkdir workspace
+# Download each VSIX file
+for vsix_name in "${!VSIX_FILES[@]}"; do
+  vsix_url="${VSIX_FILES[$vsix_name]}"
+  wget -q "$vsix_url" -O "downloads/$vsix_name"
+  echo "✅ Downloaded $vsix_name to $(pwd)/downloads"
+done
+
+# Move to downloads directory and unzip each VSIX file into the extensions directory
+cd downloads
+for vsix_file in *.vsix; do
+  dir_name="${vsix_file%.vsix}"
+  echo "Unzipping $vsix_file into ~/.theia/extensions/$dir_name/"
+  unzip -q "$vsix_file" -d ~/.theia/extensions/"$dir_name"
+done
+cd ..
+
+# Create a function to bounce the Theia process
+# Function to restart the Theia process
+restart_theia() {
+  echo "Looking for Theia process..."
+  local theia_pid=$(pgrep -f "/opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js")
+  
+  if [ -n "$theia_pid" ]; then
+    echo "Killing Theia process with PID $theia_pid"
+    kill -9 "$theia_pid"
+    sleep 2
+  else
+    echo "No Theia process found to kill"
+  fi
+  
+  echo "Starting Theia process in the background..."
+  nohup /opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js /root --hostname=0.0.0.0 --port 40205 > /dev/null 2>&1 &
+  echo "Theia restarted with PID $!"
+}
+
+# Restart Theia to apply changes
+restart_theia
 
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
