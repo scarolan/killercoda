@@ -41,7 +41,27 @@ for vsix_file in *.vsix; do
 done
 cd ..
 
-# Overwrite the ~/.theia/settings.json file with our settings
+# Function to restart the Theia process
+restart_theia() {
+  echo "Looking for Theia process..."
+  local theia_pid=$(pgrep -f "/opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js")
+  
+  if [ -n "$theia_pid" ]; then
+    echo "Killing Theia process with PID $theia_pid"
+    kill -9 "$theia_pid"
+    sleep 2
+  else
+    echo "No Theia process found to kill"
+  fi
+  
+  echo "Starting Theia process in the background..."
+  nohup /opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js /root --hostname=0.0.0.0 --port 40205 > /dev/null 2>&1 &
+  echo "Theia restarted with PID $!"
+}
+
+# Restart Theia to apply changes
+restart_theia
+
 # Overwrite the ~/.theia/settings.json file with our settings
 mkdir -p ~/.theia
 cat > ~/.theia/settings.json << 'EOF'
@@ -66,26 +86,6 @@ cat > ~/.theia/settings.json << 'EOF'
 }
 EOF
 
-# Function to restart the Theia process
-restart_theia() {
-  echo "Looking for Theia process..."
-  local theia_pid=$(pgrep -f "/opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js")
-  
-  if [ -n "$theia_pid" ]; then
-    echo "Killing Theia process with PID $theia_pid"
-    kill -9 "$theia_pid"
-    sleep 2
-  else
-    echo "No Theia process found to kill"
-  fi
-  
-  echo "Starting Theia process in the background..."
-  nohup /opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js /root --hostname=0.0.0.0 --port 40205 > /dev/null 2>&1 &
-  echo "Theia restarted with PID $!"
-}
-
-# Restart Theia to apply changes
-restart_theia
 
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
