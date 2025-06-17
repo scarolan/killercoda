@@ -68,6 +68,7 @@ git clone https://github.com/grafana/vim-alloy ~/.vim/pack/plugins/start/vim-all
 # Install gruvbox and tokyonight
 mkdir -p ~/.vim/pack/colors/start
 git clone https://github.com/morhetz/gruvbox ~/.vim/pack/colors/start/gruvbox
+git clone https://github.com/dracula/vim.git ~/.vim/pack/colors/start/dracula
 
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
