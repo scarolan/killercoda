@@ -69,6 +69,7 @@ git clone https://github.com/grafana/vim-alloy ~/.vim/pack/plugins/start/vim-all
 mkdir -p ~/.vim/pack/colors/start
 git clone https://github.com/morhetz/gruvbox ~/.vim/pack/colors/start/gruvbox
 git clone https://github.com/dracula/vim.git ~/.vim/pack/colors/start/dracula
+git clone https://github.com/sainnhe/everforest.git ~/.vim/pack/colors/start/everforest
 
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
