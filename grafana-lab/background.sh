@@ -8,7 +8,8 @@ echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stab
 apt -y update
 
 # Install Grafana and Alloy
-apt -y install grafana alloy btop
+#apt -y install grafana alloy btop
+apt -y install alloy btop
 
 # Fix the Alloy config so Killercoda can reach it
 sudo sed -i -e '/^CUSTOM_ARGS=/s#".*"#"--server.http.listen-addr=0.0.0.0:12345"#' /etc/default/alloy
