@@ -10,7 +10,7 @@ The lab starts on the console tab (Tab 1). You can run Linux commands in this te
 
 Click on the **Editor** tab to access the Theia browser-based IDE. The Editor tab also includes a terminal where you can run commands.
 
-Grafana Alloy is running on **port 12345** with a minimal configuration.
+Grafana Alloy is running on port 12345 with a minimal configuration.
 
 Open the hamburger menu (☰) in the upper‑right, select **Traffic/Ports**, enter 12345, and click **Access** to open the Alloy UI.
 
