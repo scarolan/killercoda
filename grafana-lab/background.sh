@@ -61,6 +61,9 @@ restart_theia() {
 # Restart Theia to apply changes
 restart_theia
 
+# Install the Grafana Alloy vim plugin
+mkdir -p ~/.vim/pack/plugins/start && git clone https://github.com/grafana/vim-alloy ~/.vim/pack/plugins/start/vim-alloy
+
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
 cat <<'EOF' >> ~/.bashrc
