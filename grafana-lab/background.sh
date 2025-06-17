@@ -8,7 +8,7 @@ echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stab
 apt -y update
 
 # Install Grafana and Alloy
-apt -y install grafana alloy
+apt -y install grafana alloy btop
 
 # Fix the Alloy config so Killercoda can reach it
 sudo sed -i -e '/^CUSTOM_ARGS=/s#".*"#"--server.http.listen-addr=0.0.0.0:12345"#' /etc/default/alloy
@@ -44,7 +44,7 @@ cd ..
 restart_theia() {
   echo "Looking for Theia process..."
   local theia_pid=$(pgrep -f "/opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js")
-  
+
   if [ -n "$theia_pid" ]; then
     echo "Killing Theia process with PID $theia_pid"
     kill -9 "$theia_pid"
@@ -52,7 +52,7 @@ restart_theia() {
   else
     echo "No Theia process found to kill"
   fi
-  
+
   echo "Starting Theia process in the background..."
   nohup /opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js /root --hostname=0.0.0.0 --port 40205 > /dev/null 2>&1 &
   echo "Theia restarted with PID $!"
