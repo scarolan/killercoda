@@ -62,11 +62,13 @@ restart_theia() {
 restart_theia
 
 # Install the Grafana Alloy vim plugin
-mkdir -p ~/.vim/pack/plugins/start && git clone https://github.com/grafana/vim-alloy ~/.vim/pack/plugins/start/vim-alloy
+mkdir -p ~/.vim/pack/plugins/start
+git clone https://github.com/grafana/vim-alloy ~/.vim/pack/plugins/start/vim-alloy
 
 # Install gruvbox and tokyonight
-mkdir -p ~/.vim/pack/colors/start && git clone https://github.com/morhetz/gruvbox ~/.vim/pack/colors/start/gruvbox
-mkdir -p ~/.vim/pack/colors/start && git clone https://github.com/folke/tokyonight.nvim ~/.vim/pack/colors/start/tokyonight
+mkdir -p ~/.vim/pack/colors/start
+git clone https://github.com/morhetz/gruvbox ~/.vim/pack/colors/start/gruvbox
+curl -fLo ~/.vim/colors/tokyonight.vim https://raw.githubusercontent.com/ghifarit53/tokyonight-vim/main/colors/tokyonight.vim
 
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
