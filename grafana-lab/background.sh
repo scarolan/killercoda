@@ -41,7 +41,7 @@ for vsix_file in *.vsix; do
 done
 cd ..
 
-# Function to restart the Theia process in the /root/workspace directory
+# Function to restart the Theia process
 restart_theia() {
   echo "Looking for Theia process..."
   local theia_pid=$(pgrep -f "/opt/theia/node /opt/theia/browser-app/src-gen/backend/main.js")
