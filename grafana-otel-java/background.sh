@@ -78,10 +78,12 @@ echo "colorscheme everforest" >> ~/.vimrc
 # Clone the Spring Pet Clinic repo
 git clone https://github.com/spring-projects/spring-petclinic
 cd spring-petclinic
-curl -L -O https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar
+wget -O grafana-opentelemetry-java.jar https://github.com/grafana/grafana-opentelemetry-java/releases/download/v2.17.0/grafana-opentelemetry-java.jar
 
 # Enable fancy prompt and inject completed message into .bashrc
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
+
+# Update the .bashrc file to set the prompt and locale
 cat <<'EOF' >> ~/.bashrc
 
 # -----------------------------------------------------------------------------
