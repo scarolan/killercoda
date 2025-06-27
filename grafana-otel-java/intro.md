@@ -2,18 +2,22 @@
      alt="Grot - the Grafana Dino Robot Mascot"
      style="float: left; margin: 0 10px 10px 0; max-width: 200px;" />
 
-Welcome to your interactive Grafana & Alloy lab!
+Welcome to the Grafana OpenTelemetry Java Lab!
 
-This environment lets you gets hands-on with the Grafana Alloy telemetry agent. When setup is complete, you’ll see the Grafana logo in your terminal.
+The Spring Petclinic JAR file and the Grafana OpenTelemetry Java Agent have been downloaded to your home directory.
 
-The lab starts on the console tab (Tab 1). You can run Linux commands in this terminal window.
+Follow the instructions in the Grafana Cloud Connections Integration for Java to configure Alloy to receive telemetry from the Spring Petclinic application.
 
-Click on the **Editor** tab to access the Theia browser-based IDE. The Editor tab also includes a terminal where you can run commands.
+Then, start Spring Petclinic with the following commands. 
 
-Grafana Alloy is running on port 12345 with a minimal configuration.
+```bash
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
+export OTEL_EXPORTER_OTLP_PROTOCOL=grpc
+export OTEL_SERVICE_NAME=petclinic
+export OTEL_RESOURCE_ATTRIBUTES=deployment.environment=production
+java -javaagent:grafana-opentelemetry-java.jar -jar spring-petclinic.jar
+```
 
-Open the hamburger menu (☰) in the upper‑right, select **Traffic/Ports**, enter 12345, and click **Access** to open the Alloy UI.
+Next, use the Killercoda port forwarder to open a new browser tab pointed at 8080, the port that Spring Petclinic runs on. Browse around the application to generate telemetry data and errors.
 
-The **START** button isn’t required for this lab. You can also hide this pane by dragging it left to maximize your workspace.
-
-Happy exploring and happy observing! 🎉
+It will take a few minutes for the petclinic service to show up in Grafana Cloud App Observability.
