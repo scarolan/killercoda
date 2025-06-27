@@ -9,7 +9,7 @@ apt -y update
 
 # Install Grafana and Alloy
 #apt -y install grafana alloy btop
-apt -y install alloy btop
+apt -y install alloy btop openjdk-17-jdk
 
 # Fix the Alloy config so Killercoda can reach it
 sudo sed -i -e '/^CUSTOM_ARGS=/s#".*"#"--server.http.listen-addr=0.0.0.0:12345"#' /etc/default/alloy
@@ -96,4 +96,10 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # setup-complete
+
+# Clone the Spring Pet Clinic repo
+git clone https://github.com/spring-projects/spring-petclinic
+cd spring-petclinic
+curl -L -O https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar
+
 EOF
