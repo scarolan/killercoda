@@ -75,7 +75,12 @@ git clone https://github.com/sainnhe/everforest.git ~/.vim/pack/colors/start/eve
 # Set the Vim colorscheme to everforest
 echo "colorscheme everforest" >> ~/.vimrc
 
-# Enable fancy prompt
+# Clone the Spring Pet Clinic repo
+git clone https://github.com/spring-projects/spring-petclinic
+cd spring-petclinic
+curl -L -O https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar
+
+# Enable fancy prompt and inject completed message into .bashrc
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
 cat <<'EOF' >> ~/.bashrc
 
@@ -96,10 +101,5 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # setup-complete
-
-# Clone the Spring Pet Clinic repo
-git clone https://github.com/spring-projects/spring-petclinic
-cd spring-petclinic
-curl -L -O https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar
-
 EOF
+
