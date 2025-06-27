@@ -75,9 +75,8 @@ git clone https://github.com/sainnhe/everforest.git ~/.vim/pack/colors/start/eve
 # Set the Vim colorscheme to everforest
 echo "colorscheme everforest" >> ~/.vimrc
 
-# Clone the Spring Pet Clinic repo
-git clone https://github.com/spring-projects/spring-petclinic
-cd spring-petclinic
+# Fetch the Spring Pet Clinic Java JAR file
+wget -O spring-petclinic.jar https://grafana-otel-java.s3.us-east-1.amazonaws.com/spring-petclinic-3.5.0.jar
 wget -O grafana-opentelemetry-java.jar https://github.com/grafana/grafana-opentelemetry-java/releases/download/v2.17.0/grafana-opentelemetry-java.jar
 
 # Enable fancy prompt and inject completed message into .bashrc
