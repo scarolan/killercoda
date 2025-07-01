@@ -4,9 +4,10 @@
 
 Welcome to your interactive Grafana & Prometheus lab!
 
-When setup is complete, you’ll see the Grafana logo in your terminal.
+When setup is complete, you’ll see the Grafana logo in your terminal. Access Grafana and Prometheus with these links:
 
-Open the hamburger menu (☰) in the upper‑right to access Grafana (port 3000) and Prometheus (port 9090).
+- [Grafana Server]({{TRAFFIC_HOST1_3000}})
+- [Prometheus UI]({{TRAFFIC_HOST1_9090}})
 
 You can generate some system load by running this command in the terminal. It will drive CPU usage up to 80% for 60 seconds.
 
