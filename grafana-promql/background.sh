@@ -75,6 +75,23 @@ git clone https://github.com/sainnhe/everforest.git ~/.vim/pack/colors/start/eve
 # Set the Vim colorscheme to everforest
 echo "colorscheme everforest" >> ~/.vimrc
 
+# Provision Prometheus as a data source in Grafana
+mkdir -p /etc/grafana/provisioning/datasources
+
+cat <<EOF > /etc/grafana/provisioning/datasources/prometheus.yaml
+apiVersion: 1
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://localhost:9090
+    isDefault: true
+    editable: true
+EOF
+
+# Restart Grafana server to apply changes
+systemctl restart grafana-server
+
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
 cat <<'EOF' >> ~/.bashrc
