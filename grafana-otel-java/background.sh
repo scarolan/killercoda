@@ -82,6 +82,9 @@ wget -O grafana-opentelemetry-java.jar https://github.com/grafana/grafana-opente
 # Enable fancy prompt and inject completed message into .bashrc
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
 
+# Restart Alloy
+systemctl restart alloy
+
 # Update the .bashrc file to set the prompt and locale
 cat <<'EOF' >> ~/.bashrc
 
