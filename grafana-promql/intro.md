@@ -1,11 +1,9 @@
 <table style="border-collapse: collapse; margin-bottom: 8px;">
   <tr>
-    <td style="padding-right: 12px; vertical-align: middle;">
+    <td style="padding: 4px;">
       <img src="./images/grot.png"
            alt="Grot the Grafana Dino"
-           style="max-width: 80px;" />
-    </td>
-    <td style="vertical-align: middle;">
+           style="float: left; max-width: 80px; margin: 0 12px 4px 0;" />
       <p style="margin: 0; line-height: 1.4;">
         <strong>Welcome to your interactive Grafana & Prometheus Lab!</strong>
       </p>
