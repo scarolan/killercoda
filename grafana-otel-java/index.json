@@ -1,6 +1,6 @@
 {
   "title": "☕Grafana Open Telemetry Java Lab",
-  "description": "An open lab environment with Grafana OTEL Java Agent and Spring Boot Pet Clinic on Ubuntu 22.04. The Spring Pet Clinic application is preconfigured to forward telemetry data to Grafana Cloud via the local Alloy agent.",
+  "description": "Open lab environment with Grafana OTEL Java Agent and Pet Clinic App. The Pet Clinic application is preconfigured to forward telemetry data to Grafana Cloud via the local Alloy agent.",
   "details": {
     "intro": {
       "text": "intro.md",
