@@ -1,0 +1,14 @@
+{
+  "title": "Prometheus Lab",
+  "description": "This is an interactive lab environment for learning PromQL.",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh",
+      "foreground": "foreground.sh"
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
