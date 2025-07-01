@@ -1,16 +1,14 @@
-<table style="border-collapse: collapse; border: none; width: 100%;">
+<table style="border-collapse: collapse; margin-bottom: 8px;">
   <tr>
-    <td style="border: none; padding: 4px 0;">
-      <div style="display: flex; align-items: center; height: 100px;">
-        <img src="./images/grot.png"
-             alt="Grot the Grafana Dino"
-             style="max-height: 80px; margin-right: 12px;" />
-        <div style="display: flex; align-items: center; height: 100%;">
-          <p style="margin: 0; line-height: 1.4;">
-            <strong>Welcome to your interactive Grafana & Prometheus Lab!</strong>
-          </p>
-        </div>
-      </div>
+    <td style="padding-right: 12px; vertical-align: middle;">
+      <img src="./images/grot.png"
+           alt="Grot the Grafana Dino"
+           style="max-width: 80px;" />
+    </td>
+    <td style="vertical-align: middle;">
+      <p style="margin: 0; line-height: 1.4;">
+        <strong>Welcome to your interactive Grafana & Prometheus Lab!</strong>
+      </p>
     </td>
   </tr>
 </table>
