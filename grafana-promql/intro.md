@@ -1,30 +1,15 @@
-<style>
-  @keyframes slideInFade {
-    0% {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .grot-animate {
-    animation: slideInFade 1s ease-out forwards;
-  }
-</style>
-
 <table style="border-collapse: collapse; border: none;">
   <tr>
-    <td style="vertical-align: middle; border: none;">
-      <img src="./images/grot.png" alt="Grot the Grafana Dino"
-           class="grot-animate"
-           style="max-width: 120px; margin-right: 16px;" />
-    </td>
-    <td style="vertical-align: middle; border: none;">
-      <div style="background-color: #e6f7ff; padding: 12px; border-radius: 4px;">
-        <strong>Welcome to your interactive Grafana & Prometheus Lab!</strong><br />
+    <td style="border: none;">
+      <div style="background-color: #ffffff; padding: 0;">
+        <img src="./images/grot.png"
+             alt="Grot the Grafana Dino"
+             style="max-width: 100px; float: left; margin: 0 12px 8px 0;" />
+        <div style="overflow: hidden;">
+          <p style="margin: 0;">
+            <strong>Welcome to your interactive Grafana & Prometheus Lab!</strong>
+          </p>
+        </div>
       </div>
     </td>
   </tr>
