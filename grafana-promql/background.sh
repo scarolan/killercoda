@@ -89,6 +89,27 @@ datasources:
     editable: true
 EOF
 
+# Preinstall Grafana dashboard 1860 - Node Exporter Full
+# Create necessary folders
+mkdir -p /etc/grafana/provisioning/dashboards
+mkdir -p /var/lib/grafana/dashboards
+
+# Provisioning YAML for the dashboard
+cat <<EOF > /etc/grafana/provisioning/dashboards/node-exporter.yaml
+apiVersion: 1
+providers:
+  - name: 'Node Exporter Full'
+    folder: 'Node Exporter'
+    type: file
+    disableDeletion: false
+    editable: true
+    options:
+      path: /var/lib/grafana/dashboards
+EOF
+
+# Download the dashboard JSON from Grafana.com
+wget -q -O /var/lib/grafana/dashboards/node-exporter-full.json https://grafana.com/api/dashboards/1860/revisions/33/download
+
 # Restart Grafana server to apply changes
 systemctl restart grafana-server
 
