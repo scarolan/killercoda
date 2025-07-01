@@ -10,9 +10,13 @@ echo " ✅ ready!"
 
 # Run silently, only show final output
 (
+  # Define colors
+  ORANGE=$'\033[38;5;208m'
+  YELLOW=$'\033[1;33m'
+  GREEN=$'\033[38;5;82m'
+  RESET=$'\033[0m'
+  
   # Startup sequence
-  systemctl start grafana-server
-  systemctl start alloy
   clear
 
   echo -e "\033[38;2;255;102;0m                        ltmg\033[0m"
@@ -50,9 +54,9 @@ echo " ✅ ready!"
 EOF
   )
 
-  echo -e "\033[1;33m${GRAFANA_NAME}\033[0m"
+  echo -e "${YELLOW}${GRAFANA_NAME}${RESET}"
   echo -e ""
-  echo -e "\033[38;5;82mWelcome to your Grafana training environment.\033[0m"
+  echo -e "${GREEN}Welcome to your Grafana training environment.${RESET}"
 ) >/dev/tty
 
 source .bashrc
