@@ -4,7 +4,7 @@
 
 Welcome to your interactive Grafana & Prometheus lab!
 
-This environment lets you gets hands-on with Prometheus and Grafana. When setup is complete, you’ll see the Grafana logo in your terminal.
+When setup is complete, you’ll see the Grafana logo in your terminal.
 
 Open the hamburger menu (☰) in the upper‑right to access Grafana (port 3000) and Prometheus (port 9090).
 
