@@ -9,7 +9,7 @@ apt -y update
 
 # Install Grafana and Alloy
 #apt -y install grafana alloy btop
-apt -y install prometheus alloy btop
+apt -y install prometheus alloy btop grafana
 
 # Fix the Alloy config so Killercoda can reach it
 sudo sed -i -e '/^CUSTOM_ARGS=/s#".*"#"--server.http.listen-addr=0.0.0.0:12345"#' /etc/default/alloy
