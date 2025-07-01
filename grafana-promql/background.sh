@@ -112,6 +112,13 @@ wget -q -O /var/lib/grafana/dashboards/node-exporter-full.json https://grafana.c
 # Restart Grafana server to apply changes
 systemctl restart grafana-server
 
+# Wait for Grafana server to be ready
+until curl -sSf http://localhost:3000/api/health > /dev/null; do
+  echo "Waiting for Grafana to be ready..."
+  sleep 2
+done
+echo "Grafana is ready."
+
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
 cat <<'EOF' >> ~/.bashrc
