@@ -5,7 +5,7 @@
     </td>
     <td>
       <div style="background-color: #e6f7ff; padding: 12px; border-radius: 4px;">
-        <strong>Welcome to your interactive Grafana & Prometheus Lab!</strong><br />
+        <strong>Welcome to your interactive Grafana Java OTEL Lab!</strong><br />
         Wait until the dots stop moving before proceeding. When setup is complete, you’ll see a big Grafana logo in your terminal.
       </div>
     </td>
