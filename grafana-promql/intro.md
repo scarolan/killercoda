@@ -4,7 +4,8 @@
 
 Welcome to your interactive Grafana & Prometheus lab!
 
-When setup is complete, you’ll see the Grafana logo in your terminal.
+> **Info**  
+> Wait until the dots stop moving before proceeding. When setup is complete, you’ll see a big Grafana logo in your terminal. 
 
 Access Grafana and Prometheus with these links:
 

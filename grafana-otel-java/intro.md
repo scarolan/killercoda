@@ -4,6 +4,9 @@
 
 Welcome to the Grafana OpenTelemetry Java Lab!
 
+> **Info**  
+> Wait until the dots stop moving before proceeding. When setup is complete, you’ll see a big Grafana logo in your terminal. 
+
 The Spring Petclinic JAR file and the Grafana OpenTelemetry Java Agent have been downloaded to your home directory.
 
 Follow the instructions in the Grafana Cloud Connections Integration for Java to configure Alloy to receive telemetry from the Spring Petclinic application.
