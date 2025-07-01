@@ -1,6 +1,6 @@
 {
   "title": "📈Grafana Alloy Lab",
-  "description": "On open lab environment with Grafana Alloy preinstalled on Ubuntu.",
+  "description": "An open lab environment with Grafana Alloy preinstalled on Ubuntu.",
   "details": {
     "intro": {
       "text": "intro.md",
