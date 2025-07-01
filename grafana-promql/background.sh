@@ -99,7 +99,6 @@ cat <<EOF > /etc/grafana/provisioning/dashboards/node-exporter.yaml
 apiVersion: 1
 providers:
   - name: 'Node Exporter Full'
-    folder: 'Node Exporter'
     type: file
     disableDeletion: false
     editable: true
