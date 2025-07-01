@@ -17,4 +17,6 @@ You can generate some system load by running this command in the terminal. It wi
 stress-ng --cpu 1 --cpu-load 80 --timeout 60s
 ```
 
+You can use the `btop` command to monitor system resources in real-time. This is a great way to see how your system is performing while you explore Grafana and Prometheus. Simply leave btop running and open a new terminal tab to run commands.
+
 Happy exploring and happy observing! 🎉
