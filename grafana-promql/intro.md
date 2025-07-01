@@ -6,13 +6,12 @@
     <td>
       <div style="background-color: #e6f7ff; padding: 12px; border-radius: 4px;">
         <strong>Welcome to your interactive Grafana & Prometheus Lab!</strong><br />
-        Wait until the dots stop moving before proceeding. When setup is complete, you’ll see a big Grafana logo in your terminal.
       </div>
     </td>
   </tr>
 </table>
 
-> **Info**  
+> **Warning**  
 > Wait until the dots stop moving before proceeding. When setup is complete, you’ll see a big Grafana logo in your terminal. 
 
 Access Grafana and Prometheus with these links:
