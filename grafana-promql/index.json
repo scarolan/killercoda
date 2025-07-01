@@ -1,6 +1,6 @@
 {
   "title": "🔥Prometheus Lab",
-  "description": "An open lab environment with Prometheus and Grafana preinstalled on Ubuntu 22.04. The Unix Node Exporter Dashboard is pre-installed and receiving telemetry from your Killercoda instance.",
+  "description": "Open lab environment with Prometheus and Grafana preinstalled on Ubuntu 22.04. The Unix Node Exporter dashboard is pre-installed and Prometheus scrapes metrics every 15 seconds from the local host.",
   "details": {
     "intro": {
       "text": "intro.md",
