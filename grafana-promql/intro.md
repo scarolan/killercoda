@@ -4,7 +4,7 @@
       <img src="./images/grot.png"
            alt="Grot the Grafana Dino"
            style="float: left; max-width: 80px; margin: 0 12px 4px 0;" />
-      <span style="display: inline-block; height: 12px;"></span><br />
+      <span style="display: inline-block; height: 8px;"></span><br />
       <strong>Welcome to your interactive Grafana & Prometheus Lab!</strong>
     </td>
   </tr>
