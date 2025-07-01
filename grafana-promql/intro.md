@@ -1,9 +1,28 @@
-<table>
+<style>
+  @keyframes slideInFade {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .grot-animate {
+    animation: slideInFade 1s ease-out forwards;
+  }
+</style>
+
+<table style="border-collapse: collapse; border: none;">
   <tr>
-    <td style="vertical-align: top;">
-      <img src="./images/grot.png" alt="Grot the Grafana Dino" style="max-width: 120px; margin-right: 16px;" />
+    <td style="vertical-align: middle; border: none;">
+      <img src="./images/grot.png" alt="Grot the Grafana Dino"
+           class="grot-animate"
+           style="max-width: 120px; margin-right: 16px;" />
     </td>
-    <td>
+    <td style="vertical-align: middle; border: none;">
       <div style="background-color: #e6f7ff; padding: 12px; border-radius: 4px;">
         <strong>Welcome to your interactive Grafana & Prometheus Lab!</strong><br />
       </div>
@@ -11,8 +30,9 @@
   </tr>
 </table>
 
-> **Warning**  
-> Wait until the dots stop moving before proceeding. When setup is complete, you’ll see a big Grafana logo in your terminal. 
+> **Lab Startup**  
+> Wait until the dots stop moving before proceeding. When setup is complete, you’ll see a big Grafana logo in your terminal.
+
 
 Access Grafana and Prometheus with these links:
 
