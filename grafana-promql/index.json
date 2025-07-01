@@ -1,6 +1,6 @@
 {
   "title": "🔥Prometheus Lab",
-  "description": "This is an interactive lab environment for learning PromQL.",
+  "description": "An open lab environment with Prometheus and Grafana preinstalled on Ubuntu.",
   "details": {
     "intro": {
       "text": "intro.md",

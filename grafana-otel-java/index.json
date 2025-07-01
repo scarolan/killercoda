@@ -1,6 +1,6 @@
 {
   "title": "☕Grafana Open Telemetry Java Lab",
-  "description": "This is an interactive lab environment for Grafana users and admins.",
+  "description": "An open lab environment with Grafana OTEL Java Agent and Spring Boot Pet Clinic.",
   "details": {
     "intro": {
       "text": "intro.md",
