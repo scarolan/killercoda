@@ -1,3 +1,7 @@
+# foreground.sh
+
+#!/bin/bash
+
 echo "Still setting up, please wait"
 
 dots=""
@@ -12,10 +16,13 @@ echo " ✅ ready!"
 # Run silently, only show final output
 (
   # Define colors
-  ORANGE=$'\033[38;5;208m'
+  RESET=$'\033[0m'
+  C208=$'\033[38;5;208m'
+  C214=$'\033[38;5;214m'
+  C220=$'\033[38;5;220m'
+  C226=$'\033[38;5;226m'
   YELLOW=$'\033[1;33m'
   GREEN=$'\033[38;5;82m'
-  RESET=$'\033[0m'
 
   GRAFANA_LOGO=$(cat <<'EOF'
                         ltmg
@@ -55,14 +62,22 @@ EOF
 EOF
   )
 
-  # Put any startup commands you need here
-  systemctl start grafana-server
-  systemctl start alloy
-  # Next we clear the screen and print the welcome message
-  clear
-  echo -e "${ORANGE}${GRAFANA_LOGO}${RESET}"
+  # Print each line of the logo with a gradient
+  i=0
+  while IFS= read -r line; do
+    case $i in
+      [0-4]) COLOR=$C208 ;;
+      [5-10]) COLOR=$C214 ;;
+      [11-17]) COLOR=$C220 ;;
+      *) COLOR=$C226 ;;
+    esac
+    echo -e "${COLOR}${line}${RESET}"
+    ((i++))
+  done <<< "$GRAFANA_LOGO"
+
   echo -e "${YELLOW}${GRAFANA_NAME}${RESET}"
   echo -e ""
   echo -e "${GREEN}Welcome to your Grafana training environment.${RESET}"
 ) >/dev/tty
+
 source .bashrc
