@@ -4,7 +4,9 @@
 
 Welcome to your interactive Grafana & Prometheus lab!
 
-When setup is complete, you’ll see the Grafana logo in your terminal. Access Grafana and Prometheus with these links:
+When setup is complete, you’ll see the Grafana logo in your terminal.
+
+Access Grafana and Prometheus with these links:
 
 - [Grafana Server]({{TRAFFIC_HOST1_3000}})
 - [Prometheus UI]({{TRAFFIC_HOST1_9090}})
