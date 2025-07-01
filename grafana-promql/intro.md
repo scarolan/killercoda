@@ -13,7 +13,7 @@ Click on the **Editor** tab to access the Theia browser-based IDE. The Editor ta
 Open the hamburger menu (☰) in the upper‑right to access Grafana and Prometheus on their respective ports. Prometheus is running on port 9090 and Grafana is running on port 3000.
 
 You can generate some system load by running this command in the terminal. It will drive CPU usage up to 80% for 60 seconds.
-`stress-ng --cpu 1 --cpu-load 80 --timeout 60s`
+`stress-ng --cpu 1 --cpu-load 80 --timeout 60s`{{exec}}
 
 You can use the `btop` command to monitor system resources in real-time. This is a great way to see how your system is performing while you explore Grafana and Prometheus. Simply leave btop running and open a new terminal tab to run commands.
 
