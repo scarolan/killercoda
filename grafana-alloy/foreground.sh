@@ -1,5 +1,4 @@
 echo "Still setting up, please wait"
-
 dots=""
 while ! tail -n1 ~/.bashrc 2>/dev/null | grep -q "setup-complete"; do
   dots+="."
@@ -11,69 +10,41 @@ echo " ✅ ready!"
 
 # Run silently, only show final output
 (
-  # Define colors
-  RESET=$'\033[0m'
-  C208=$'\033[38;5;208m'
-  C214=$'\033[38;5;214m'
-  C220=$'\033[38;5;220m'
-  C226=$'\033[38;5;226m'
-  YELLOW=$'\033[1;33m'
-  GREEN=$'\033[38;5;82m'
-
-  GRAFANA_LOGO=$(cat <<'EOF'
-                        ltmg
-                       tmmmmtl
-                     lmmmmmmmmg
-                 lggtmmmmmmmmmmmmttggtmmmm
-     gttmmmmmmttmmmmmmmmmmmmmmmmmmmmmmmmmml
-     tmmmmmmmmmmmmmmmm               tmmmmtl
-     lmmmmmmmmmmmmt                      mmmg
-      gmmmmmmmmmt                          tmt
-       lmmmmmmmg           llgggggll         mm
-       tmmmmmmg         gtmmmmmmmmmmmmtl      mg
-       mmmmmmm        gmmmg        tmmmmmg     m
-     ltLLLLLLg       gLLt            gLLLLml
-  ltmLLLLLLLLg       LLL              lLLLLm
- tLLLLLLLLLLLm       mLL               mLLLLg
-tLLLLLLLLLLLLLl       tLt              LLLLLt
-  lLLLLLLLLLLLLg        lLtglllg      gLLLLLLg
-       gLLLLLLLLtl                   gLLLLLLLLm
-          tLLLLLLLmg               gmLLLLLLLLm
-            mGGGGGGGLmtglll  llggmLGGGGGGl
-            LGGGGGGGGGGGGGGGGGGGGGGGGGG
-           lGGGGGGGGGGGGGGGGGGGGGGGGGg
-            GGGGGGL         gGGGGGGGL
-                               LGGGt
-                                  g
-EOF
-  )
-
-  GRAFANA_NAME=$(cat <<'EOF'
-  _____            __                    _           _         
- / ____|          / _|                  | |         | |        
-| |  __ _ __ __ _| |_ __ _ _ __   __ _  | |     __ _| |__  ___ 
-| | |_ | '__/ _` |  _/ _` | '_ \ / _` | | |    / _` | '_ \/ __|
-| |__| | | | (_| | || (_| | | | | (_| | | |___| (_| | |_) \__ \
- \_____|_|  \__,_|_| \__,_|_| |_|\__,_| |______\__,_|_.__/|___/
-EOF
-  )
-
-  # Print each line of the logo with a gradient
-  i=0
-  while IFS= read -r line; do
-    case $i in
-      [0-4]) COLOR=$C208 ;;
-      [5-10]) COLOR=$C214 ;;
-      [11-17]) COLOR=$C220 ;;
-      *) COLOR=$C226 ;;
-    esac
-    echo -e "${COLOR}${line}${RESET}"
-    ((i++))
-  done <<< "$GRAFANA_LOGO"
-
-  echo -e "${YELLOW}${GRAFANA_NAME}${RESET}"
+  # Startup sequence
+  systemctl start grafana-server
+  systemctl start alloy
+  clear
+  echo -e "\033[38;2;255;102;0m                        ltmg\033[0m"
+  echo -e "\033[38;2;255;102;0m                       tmmmmtl\033[0m"
+  echo -e "\033[38;2;255;102;0m                     lmmmmmmmmg\033[0m"
+  echo -e "\033[38;2;255;122;0m                 lggtmmmmmmmmmmmmttggtmmmm\033[0m"
+  echo -e "\033[38;2;255;122;0m     gttmmmmmmttmmmmmmmmmmmmmmmmmmmmmmmmmml\033[0m"
+  echo -e "\033[38;2;255;122;0m     tmmmmmmmmmmmmmmmm               tmmmmtl\033[0m"
+  echo -e "\033[38;2;255;142;0m     lmmmmmmmmmmmmt                      mmmg\033[0m"
+  echo -e "\033[38;2;255;142;0m      gmmmmmmmmmt                          tmt\033[0m"
+  echo -e "\033[38;2;255;142;0m       lmmmmmmmg           llgggggll         mm\033[0m"
+  echo -e "\033[38;2;255;162;0m       tmmmmmmg         gtmmmmmmmmmmmmtl      mg\033[0m"
+  echo -e "\033[38;2;255;162;0m       mmmmmmm        gmmmg        tmmmmmg     m\033[0m"
+  echo -e "\033[38;2;255;162;0m     ltLLLLLLg       gLLt            gLLLLml\033[0m"
+  echo -e "\033[38;2;255;182;0m  ltmLLLLLLLLg       LLL              lLLLLm\033[0m"
+  echo -e "\033[38;2;255;182;0m tLLLLLLLLLLLm       mLL               mLLLLg\033[0m"
+  echo -e "\033[38;2;255;182;0mtLLLLLLLLLLLLLl       tLt              LLLLLt\033[0m"
+  echo -e "\033[38;2;255;202;0m  lLLLLLLLLLLLLg        lLtglllg      gLLLLLLg\033[0m"
+  echo -e "\033[38;2;255;202;0m       gLLLLLLLLtl                   gLLLLLLLLm\033[0m"
+  echo -e "\033[38;2;255;202;0m          tLLLLLLLmg               gmLLLLLLLLm\033[0m"
+  echo -e "\033[38;2;255;222;0m            mGGGGGGGLmtglll  llggmLGGGGGGl\033[0m"
+  echo -e "\033[38;2;255;222;0m            LGGGGGGGGGGGGGGGGGGGGGGGGGG\033[0m"
+  echo -e "\033[38;2;255;222;0m           lGGGGGGGGGGGGGGGGGGGGGGGGGg\033[0m"
+  echo -e "\033[38;2;255;242;0m            GGGGGGL         gGGGGGGGL\033[0m"
+  echo -e "\033[38;2;255;242;0m                               LGGGt\033[0m"
+  echo -e "\033[38;2;255;242;0m                                  g\033[0m"
+  echo -e "\033[1;33m  _____            __                    _           _         \033[0m"
+  echo -e "\033[1;33m / ____|          / _|                  | |         | |        \033[0m"
+  echo -e "\033[1;33m| |  __ _ __ __ _| |_ __ _ _ __   __ _  | |     __ _| |__  ___ \033[0m"
+  echo -e "\033[1;33m| | |_ | '__/ _` |  _/ _` | '_ \ / _` | | |    / _` | '_ \/ __|\033[0m"
+  echo -e "\033[1;33m| |__| | | | (_| | || (_| | | | | (_| | | |___| (_| | |_) \__ \\033[0m"
+  echo -e "\033[1;33m \_____|_|  \__,_|_| \__,_|_| |_|\__,_| |______\__,_|_.__/|___/\033[0m"
   echo -e ""
-  echo -e "${GREEN}Welcome to your Grafana training environment.${RESET}"
+  echo -e "\033[38;5;82mWelcome to your Grafana training environment.\033[0m"
 ) >/dev/tty
-
 source .bashrc
