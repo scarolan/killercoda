@@ -3,9 +3,9 @@
     <td style="padding: 4px;">
       <img src="./images/grot.png"
            alt="Grot the Grafana Dino"
-           style="float: left; max-width: 80px; margin: 0 2px 4px 0;" />
-      <p style="margin: 0; line-height: 1.4;">
-        <strong>Welcome to your interactive Grafana & Prometheus Lab!</strong>
+           style="float: left; max-width: 80px; margin: 0 12px 4px 0;" />
+      <p style="margin: 6px 0 0 0; line-height: 1.4;">
+      <strong>Welcome to your interactive Grafana & Prometheus Lab!</strong>
       </p>
     </td>
   </tr>
