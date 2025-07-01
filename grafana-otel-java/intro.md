@@ -17,7 +17,7 @@ The Spring Petclinic JAR file and the Grafana OpenTelemetry Java Agent have been
 
 Follow the instructions in the Grafana Cloud Connections Integration for Java to configure Alloy to receive telemetry from the Spring Petclinic application.
 
-Then, start Spring Petclinic with the following commands. 
+Then, start Spring Pet Clinic with the following commands. 
 
 ```bash
 export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
@@ -27,6 +27,6 @@ export OTEL_RESOURCE_ATTRIBUTES=deployment.environment=production
 java -javaagent:grafana-opentelemetry-java.jar -jar spring-petclinic.jar
 ```{exec}
 
-Next, use the Killercoda port forwarder to open a new browser tab pointed at 8080, the port that Spring Petclinic runs on. Browse around the application to generate telemetry data and errors.
+Next, use the Killercoda port forwarder to open a new browser tab pointed at 8080, the port that Spring Pet Clinic runs on. Browse around the application to generate telemetry data and errors.
 
 It will take a few minutes for the petclinic service to show up in Grafana Cloud App Observability.
