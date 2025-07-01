@@ -1,6 +1,6 @@
 {
   "title": "☕Grafana Open Telemetry Java Lab",
-  "description": "An open lab environment with Grafana OTEL Java Agent and Spring Boot Pet Clinic on Ubuntu 22.04. Grafana Alloy can be installed with an OTLP listener on port 4317. The Spring Pet Clinic application is preconfigured to forward telemetry data to Grafana Cloud via the local Alloy OTEL listener.",
+  "description": "An open lab environment with Grafana OTEL Java Agent and Spring Boot Pet Clinic on Ubuntu 22.04. The Spring Pet Clinic application is preconfigured to forward telemetry data to Grafana Cloud via the local Alloy agent.",
   "details": {
     "intro": {
       "text": "intro.md",
