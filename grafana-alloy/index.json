@@ -1,6 +1,6 @@
 {
   "title": "📈Grafana Alloy Lab",
-  "description": "An open lab environment with Grafana Alloy preinstalled on Ubuntu.",
+  "description": "An open lab environment with Grafana Alloy preinstalled on Ubuntu 22.04. You may also install Grafana, Tempo, Loki, and Prometheus using `apt`.",
   "details": {
     "intro": {
       "text": "intro.md",
