@@ -75,6 +75,9 @@ git clone https://github.com/sainnhe/everforest.git ~/.vim/pack/colors/start/eve
 # Set the Vim colorscheme to everforest
 echo "colorscheme everforest" >> ~/.vimrc
 
+# Restart Alloy
+systemctl restart alloy
+
 # Enable fancy prompt
 wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
 cat <<'EOF' >> ~/.bashrc
