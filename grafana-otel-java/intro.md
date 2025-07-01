@@ -25,7 +25,7 @@ export OTEL_EXPORTER_OTLP_PROTOCOL=grpc
 export OTEL_SERVICE_NAME=petclinic
 export OTEL_RESOURCE_ATTRIBUTES=deployment.environment=production
 java -javaagent:grafana-opentelemetry-java.jar -jar spring-petclinic.jar
-```{exec}
+```{{exec}}
 
 Next, use the Killercoda port forwarder to open a new browser tab pointed at 8080, the port that Spring Pet Clinic runs on. Browse around the application to generate telemetry data and errors.
 
