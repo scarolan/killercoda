@@ -1,7 +1,3 @@
-# foreground.sh
-
-#!/bin/bash
-
 echo "Still setting up, please wait"
 
 dots=""
