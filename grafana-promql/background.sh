@@ -134,6 +134,30 @@ EOF
 # Download the dashboard JSON from Grafana.com
 wget -q -O /var/lib/grafana/dashboards/node-exporter-full.json https://grafana.com/api/dashboards/1860/revisions/33/download
 
+# Download the custom home dashboard from GitHub
+mkdir -p /var/lib/grafana/dashboards
+wget -q -O /var/lib/grafana/dashboards/home-dashboard.json https://raw.githubusercontent.com/scarolan/killercoda/main/grafana-promql/dashboards/home-dashboard.json
+
+# Create a provisioning file for the home dashboard
+cat <<EOF > /etc/grafana/provisioning/dashboards/home-dashboard.yaml
+apiVersion: 1
+providers:
+  - name: 'Home Dashboard'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards
+      foldersFromFilesStructure: true
+EOF
+
+# Configure home dashboard and other Grafana preferences
+cat <<EOF >> /etc/grafana/grafana.ini
+[dashboards]
+default_home_dashboard_path = /var/lib/grafana/dashboards/home-dashboard.json
+EOF
+
 # Restart Grafana server to apply changes
 systemctl restart grafana-server
 
