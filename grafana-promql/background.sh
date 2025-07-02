@@ -11,6 +11,23 @@ apt -y update
 #apt -y install grafana alloy btop
 apt -y install prometheus alloy btop grafana stress-ng
 
+# Install Prometheus Process Exporter
+cd downloads
+wget https://github.com/ncabatoff/process-exporter/releases/download/v0.8.7/process-exporter_0.8.7_linux_amd64.deb
+apt install -y ./process-exporter_0.8.7_linux_amd64.deb
+cd ..
+
+# Update prometheus.yml to scrape the process exporter
+cat <<EOF >> /etc/prometheus/prometheus.yml
+
+  - job_name: 'process-exporter'
+    static_configs:
+      - targets: ['localhost:9256']
+EOF
+
+# Restart Prometheus to apply changes
+systemctl restart prometheus
+
 # Fix the Alloy config so Killercoda can reach it
 sudo sed -i -e '/^CUSTOM_ARGS=/s#".*"#"--server.http.listen-addr=0.0.0.0:12345"#' /etc/default/alloy
 
