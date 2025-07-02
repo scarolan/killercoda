@@ -30,18 +30,34 @@
   "panels": [
     {
       "gridPos": {
-        "h": 5,
-        "w": 24,
+        "h": 7,
+        "w": 18,
         "x": 0,
         "y": 0
       },
       "id": 1,
       "options": {
-        "content": "# Welcome to the Grafana & PromQL Lab\n\nThis interactive lab will help you learn about Prometheus Query Language (PromQL) and how to visualize metrics in Grafana.\n\n## What you'll learn\n* How to navigate the Grafana interface\n* Basic to advanced PromQL queries\n* Creating effective visualizations\n* Understanding metrics and time series data\n\n## Getting Started\nExplore the pre-built panels below or create your own dashboards!",
+        "content": "# Welcome to the Grafana & PromQL Lab\n\nThis interactive lab will help you learn about Prometheus Query Language (PromQL) and how to visualize metrics in Grafana.\n\n## What you'll learn\n* How to navigate the Grafana interface\n* Basic to advanced PromQL queries\n* Creating effective visualizations\n* Understanding metrics and time series data\n\n## Getting Started\nExplore the pre-built panels below or create your own dashboards!\n\nUse `stress-ng --cpu 1 --cpu-load 80 --timeout 60s` in the terminal to generate load and see it reflected in the charts.",
         "mode": "markdown"
       },
       "pluginVersion": "9.5.2",
       "title": "Introduction",
+      "type": "text"
+    },
+    {
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "content": "<div style=\"display: flex; justify-content: center; align-items: center; height: 100%; flex-direction: column;\">\n  <img src=\"https://grafana.com/media/golden-grot/graphic-golden-grot-1.svg\" style=\"max-width: 90%; max-height: 90%;\">\n  <div style=\"margin-top: 10px; text-align: center; font-size: 14px;\">Meet Grot the Grafana mascot!</div>\n</div>",
+        "mode": "html"
+      },
+      "pluginVersion": "9.5.2",
+      "title": "",
       "type": "text"
     },
     {
@@ -106,7 +122,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 5
+        "y": 7
       },
       "id": 2,
       "options": {
@@ -199,7 +215,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 5
+        "y": 7
       },
       "id": 3,
       "options": {
@@ -247,7 +263,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 15
       },
       "id": 4,
       "options": {
