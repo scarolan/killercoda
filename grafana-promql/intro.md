@@ -26,7 +26,7 @@ You can generate some system load by running this command in the terminal. It wi
 
 `stress-ng --cpu 1 --cpu-load 80 --timeout 60s`{{exec}}
 
-This command will use a gigabyte of memory for 60 seconds:
+The following command will use a gigabyte of memory for 60 seconds. This causes a simultaneous spike in CPU usage.
 
 `stress-ng --vm 1 --vm-bytes 1G --timeout 60s`{{exec}}
 
