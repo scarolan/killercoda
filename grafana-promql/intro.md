@@ -18,6 +18,10 @@ Access Grafana and Prometheus with these links:
 - [Grafana Server]({{TRAFFIC_HOST1_3000}})
 - [Prometheus UI]({{TRAFFIC_HOST1_9090}})
 
+You can log in to Grafana with the following credentials:
+- **Username:** admin
+- **Password:** grafana
+
 You can generate some system load by running this command in the terminal. It will drive CPU usage up to 80% for 60 seconds.
 
 `stress-ng --cpu 1 --cpu-load 80 --timeout 60s`{{exec}}
