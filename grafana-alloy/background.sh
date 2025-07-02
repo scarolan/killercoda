@@ -7,8 +7,11 @@ wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | tee /etc/apt/keyr
 echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | tee /etc/apt/sources.list.d/grafana.list
 apt -y update
 
-# Install Grafana and Alloy
-#apt -y install grafana alloy btop
+# Neuter mandb so it doesn't stall apt
+echo "exit 101" > /usr/sbin/update-info-dir
+chmod +x /usr/sbin/update-info-dir
+
+# Install Alloy and btop
 apt -y install alloy btop
 
 # Fix the Alloy config so Killercoda can reach it
