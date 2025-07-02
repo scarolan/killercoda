@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euo pipefail  # Exit on error, show commands
 
+# Create downloads directory and Theia extensions directory
+mkdir -p downloads
+mkdir -p ~/.theia/extensions
+
 # Update apt and install necessary packages
 mkdir -p /etc/apt/keyrings/
 wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | tee /etc/apt/keyrings/grafana.gpg > /dev/null
@@ -20,10 +24,6 @@ declare -A VSIX_FILES=(
   ["dracula-theme.theme-dracula-2.25.1.vsix"]="https://open-vsx.org/api/dracula-theme/theme-dracula/2.25.1/file/dracula-theme.theme-dracula-2.25.1.vsix"
   ["jdinhlife.gruvbox-1.28.0.vsix"]="https://open-vsx.org/api/jdinhlife/gruvbox/1.28.0/file/jdinhlife.gruvbox-1.28.0.vsix"
 )
-
-# Create downloads directory and Theia extensions directory
-mkdir -p downloads
-mkdir -p ~/.theia/extensions
 
 # Download each VSIX file
 for vsix_name in "${!VSIX_FILES[@]}"; do

@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euo pipefail  # Exit on error, show commands
 
+# Create downloads directory and Theia extensions directory
+mkdir -p downloads
+mkdir -p ~/.theia/extensions
+
 # Update apt and install necessary packages
 mkdir -p /etc/apt/keyrings/
 wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | tee /etc/apt/keyrings/grafana.gpg > /dev/null
@@ -38,10 +42,6 @@ declare -A VSIX_FILES=(
   ["jdinhlife.gruvbox-1.28.0.vsix"]="https://open-vsx.org/api/jdinhlife/gruvbox/1.28.0/file/jdinhlife.gruvbox-1.28.0.vsix"
   ["redhat.vscode-yaml-1.9.1.vsix"]="https://open-vsx.org/api/redhat/vscode-yaml/1.9.1/file/redhat.vscode-yaml-1.9.1.vsix"
 )
-
-# Create downloads directory and Theia extensions directory
-mkdir -p downloads
-mkdir -p ~/.theia/extensions
 
 # Download each VSIX file
 for vsix_name in "${!VSIX_FILES[@]}"; do
