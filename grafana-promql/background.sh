@@ -96,6 +96,13 @@ echo "colorscheme everforest" >> ~/.vimrc
 # Provision Prometheus as a data source in Grafana
 mkdir -p /etc/grafana/provisioning/datasources
 
+# Configure Grafana admin password
+cat <<EOF > /etc/grafana/grafana.ini
+[security]
+admin_user = admin
+admin_password = grafana
+EOF
+
 cat <<EOF > /etc/grafana/provisioning/datasources/prometheus.yaml
 apiVersion: 1
 datasources:
