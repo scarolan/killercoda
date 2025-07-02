@@ -267,7 +267,7 @@
       },
       "id": 4,
       "options": {
-        "content": "## PromQL Examples\n\n### Basic Metrics\n```promql\n# CPU usage percentage\n100 - (avg by (instance) (irate(node_cpu_seconds_total{mode=\"idle\"}[1m])) * 100)\n\n# Memory usage\nnode_memory_MemTotal_bytes - node_memory_MemFree_bytes - node_memory_Buffers_bytes - node_memory_Cached_bytes\n\n# Disk usage percentage\n(1 - node_filesystem_avail_bytes / node_filesystem_size_bytes) * 100\n```\n\n### Advanced Examples\n```promql\n# Process CPU usage (requires process-exporter)\nrate(process_cpu_seconds_total{job=\"process-exporter\"}[5m])\n\n# HTTP request rate\nrate(http_requests_total[5m])\n```\n\n### Useful Tips\n- Use the **stress-ng** command from the terminal to generate CPU load\n- Create your own dashboards to explore different metrics\n- Try the **btop** command in the terminal to see system metrics directly",
+        "content": "## PromQL Examples\n\n### Basic Metrics\n```promql\n# CPU usage percentage\n100 - (avg by (instance) (irate(node_cpu_seconds_total{mode=\"idle\"}[1m])) * 100)\n\n# Memory usage\nnode_memory_MemTotal_bytes - node_memory_MemFree_bytes - node_memory_Buffers_bytes - node_memory_Cached_bytes\n\n# Disk usage percentage\n(1 - node_filesystem_avail_bytes / node_filesystem_size_bytes) * 100\n```\n\n### Advanced Examples\n```promql\n# Process CPU usage (requires process-exporter)\nrate(process_cpu_seconds_total{job=\"process-exporter\"}[5m])\n\n# HTTP request rate\nrate(http_requests_total[5m])\n```\n\n### Useful Tips\n- Use the **stress-ng** command from the terminal to generate CPU load\n- Create your own dashboards to explore different metrics\n- Try the **btop** command in the terminal",
         "mode": "markdown"
       },
       "pluginVersion": "9.5.2",
