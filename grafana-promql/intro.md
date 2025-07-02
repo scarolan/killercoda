@@ -18,7 +18,7 @@ Access Grafana and Prometheus with these links:
 - [Grafana Server]({{TRAFFIC_HOST1_3000}})
 - [Prometheus UI]({{TRAFFIC_HOST1_9090}})
 
-You can log in to Grafana with the following credentials:
+Grafana login credentials:
 - **Username:** admin
 - **Password:** grafana
 
