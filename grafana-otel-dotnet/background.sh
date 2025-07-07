@@ -6,15 +6,6 @@ mkdir -p downloads
 mkdir -p ~/.theia/extensions
 mkdir -p ~/dotnet-app
 
-# Check for our local Program.cs file location
-if [ -f "/root/scenario/TodoApi-Program.cs" ]; then
-  cp /root/scenario/TodoApi-Program.cs /root/
-elif [ -f "/mnt/scenario/TodoApi-Program.cs" ]; then
-  cp /mnt/scenario/TodoApi-Program.cs /root/
-else
-  echo "Note: Fallback Program.cs file not found in standard locations"
-fi
-
 # Update apt and install necessary packages
 mkdir -p /etc/apt/keyrings/
 wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | tee /etc/apt/keyrings/grafana.gpg > /dev/null
@@ -38,7 +29,7 @@ sudo sed -i -e '/^CUSTOM_ARGS=/s#".*"#"--server.http.listen-addr=0.0.0.0:12345"#
 declare -A VSIX_FILES=(
   ["grafana-alloy-0.2.0.vsix"]="https://github.com/grafana/vscode-alloy/releases/download/v0.2.0/grafana-alloy-0.2.0.vsix"
   ["dracula-theme.theme-dracula-2.25.1.vsix"]="https://open-vsx.org/api/dracula-theme/theme-dracula/2.25.1/file/dracula-theme.theme-dracula-2.25.1.vsix"
-  ["jdinhlife.gruvbox-1.28.0.vsix"]="https://open-vsx.org/api/jdinhlife/gruvbox/1.28.0/file/jdinhlife.gruvbox-1.28.0.vsix",
+  ["jdinhlife.gruvbox-1.28.0.vsix"]="https://open-vsx.org/api/jdinhlife/gruvbox/1.28.0/file/jdinhlife.gruvbox-1.28.0.vsix"
   ["muhammad-sammy.csharp-2.80.16.vsix"]="https://open-vsx.org/api/muhammad-sammy/csharp/2.80.16/file/muhammad-sammy.csharp-2.80.16.vsix"
 )
 
@@ -146,8 +137,9 @@ cd TodoApi
 
 # Add required packages
 dotnet add package Grafana.OpenTelemetry --version 1.2.0
-dotnet add package OpenTelemetry.Extensions.Hosting --version 1.6.0
-dotnet add package OpenTelemetry.Exporter.Console --version 1.6.0
+# Use compatible versions for OpenTelemetry packages to avoid downgrade errors
+dotnet add package OpenTelemetry.Extensions.Hosting --version 1.9.0
+dotnet add package OpenTelemetry.Exporter.Console --version 1.9.0
 dotnet add package Microsoft.EntityFrameworkCore.InMemory
 dotnet add package System.Diagnostics.DiagnosticSource
 
