@@ -25,7 +25,7 @@ Follow the instructions in the Grafana Cloud Connections Integration for .NET to
 When you're ready to test the application, start the Todo API with the following command:
 
 ```bash
-~/dotnet-app/TodoApi/start-app.sh
+~/start-app.sh
 ```{{exec}}
 
 The startup script sets the necessary environment variables:
