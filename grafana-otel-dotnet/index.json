@@ -1,0 +1,14 @@
+{
+  "title": "🔷 Grafana Open Telemetry .NET Lab",
+  "description": "Open lab environment with Grafana OTEL .NET instrumentation and a Todo API App. The Todo API application is preconfigured to forward telemetry data to Grafana Cloud via the local Alloy agent.",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh",
+      "foreground": "foreground.sh"
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
