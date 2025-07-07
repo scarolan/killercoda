@@ -6,8 +6,14 @@ mkdir -p downloads
 mkdir -p ~/.theia/extensions
 mkdir -p ~/dotnet-app
 
-# Copy our local Program.cs file to the root directory for fallback use
-cp /root/scenario/TodoApi-Program.cs /root/ || echo "Fallback Program.cs file not found"
+# Check for our local Program.cs file location
+if [ -f "/root/scenario/TodoApi-Program.cs" ]; then
+  cp /root/scenario/TodoApi-Program.cs /root/
+elif [ -f "/mnt/scenario/TodoApi-Program.cs" ]; then
+  cp /mnt/scenario/TodoApi-Program.cs /root/
+else
+  echo "Note: Fallback Program.cs file not found in standard locations"
+fi
 
 # Update apt and install necessary packages
 mkdir -p /etc/apt/keyrings/
@@ -33,7 +39,7 @@ declare -A VSIX_FILES=(
   ["grafana-alloy-0.2.0.vsix"]="https://github.com/grafana/vscode-alloy/releases/download/v0.2.0/grafana-alloy-0.2.0.vsix"
   ["dracula-theme.theme-dracula-2.25.1.vsix"]="https://open-vsx.org/api/dracula-theme/theme-dracula/2.25.1/file/dracula-theme.theme-dracula-2.25.1.vsix"
   ["jdinhlife.gruvbox-1.28.0.vsix"]="https://open-vsx.org/api/jdinhlife/gruvbox/1.28.0/file/jdinhlife.gruvbox-1.28.0.vsix"
-  ["ms-dotnettools.csharp-2.6.15.vsix"]="https://open-vsx.org/api/ms-dotnettools/csharp/2.6.15/file/ms-dotnettools.csharp-2.6.15.vsix"
+  ["muhammad-sammy.csharp-1.27.0.vsix"]="https://open-vsx.org/api/muhammad-sammy/csharp/1.27.0/file/muhammad-sammy.csharp-1.27.0.vsix"
 )
 
 # Download each VSIX file
@@ -48,7 +54,11 @@ cd downloads
 for vsix_file in *.vsix; do
   dir_name="${vsix_file%.vsix}"
   echo "Unzipping $vsix_file into ~/.theia/extensions/$dir_name/"
-  unzip -q "$vsix_file" -d ~/.theia/extensions/"$dir_name"
+  if unzip -q "$vsix_file" -d ~/.theia/extensions/"$dir_name"; then
+    echo "✅ Successfully unzipped $vsix_file"
+  else
+    echo "⚠️ Failed to unzip $vsix_file - continuing with next extension"
+  fi
 done
 cd ..
 
@@ -85,16 +95,6 @@ git clone https://github.com/sainnhe/everforest.git ~/.vim/pack/colors/start/eve
 
 # Set the Vim colorscheme to everforest
 echo "colorscheme everforest" >> ~/.vimrc
-
-# Create a simple ASP.NET Core Web API todo application
-cd ~/dotnet-app
-dotnet new webapi -n TodoApi
-cd TodoApi
-
-# Add Grafana OpenTelemetry package
-dotnet add package Grafana.OpenTelemetry --version 1.2.0
-dotnet add package OpenTelemetry.Extensions.Hosting --version 1.6.0
-dotnet add package OpenTelemetry.Exporter.Console --version 1.6.0
 
 # Restart Alloy
 systemctl restart alloy
