@@ -95,7 +95,7 @@ perl -pi -e 's/"version"\s*:\s*"[0-9.]+"/"version": "8.0.117"/' ~/grafana-opente
 ln -s ~/grafana-opentelemetry-dotnet/examples/net8.0/aspnetcore ~/TodoApp
 cd TodoApp
 dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis
-dotnet add package AWSSDK.S3
+dotnet add package AWSSDK.S3 --version 3.7.400
 dotnet add package Microsoft.Data.SqlClient
 
 # Build to ensure all dependencies are resolved
