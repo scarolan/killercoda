@@ -4,7 +4,6 @@ set -euo pipefail  # Exit on error, show commands
 # Create downloads directory and Theia extensions directory
 mkdir -p downloads
 mkdir -p ~/.theia/extensions
-mkdir -p ~/dotnet-app
 
 # Update apt and install necessary packages
 mkdir -p /etc/apt/keyrings/
@@ -20,7 +19,7 @@ rm packages-microsoft-prod.deb
 apt -y update
 
 # Install Alloy, dotnet SDK, and btop
-apt -y install alloy btop dotnet-sdk-8.0 aspnetcore-runtime-8.0
+apt -y install alloy btop dotnet-sdk-8.0 aspnetcore-runtime-8.0 redis
 
 # Fix the Alloy config so Killercoda can reach it
 sudo sed -i -e '/^CUSTOM_ARGS=/s#".*"#"--server.http.listen-addr=0.0.0.0:12345"#' /etc/default/alloy
@@ -88,29 +87,24 @@ systemctl restart alloy
 
 # Clone the Grafana OpenTelemetry .NET repository
 echo "Cloning the Grafana OpenTelemetry .NET repository..."
-cd ~/dotnet-app
-rm -rf TodoApi 2>/dev/null || true
-git clone --depth 1 https://github.com/grafana/grafana-opentelemetry-dotnet.git
-cd ~/dotnet-app
+git clone https://github.com/grafana/grafana-opentelemetry-dotnet.git
 
-# Create TodoApi directory and copy example app directly
-echo "Setting up the ASP.NET Core example with TodoApi..."
-mkdir -p TodoApi
-cp -r grafana-opentelemetry-dotnet/examples/net8.0/aspnetcore/* TodoApi/
-cd TodoApi
+# Fix the version of the SDK
+perl -pi -e 's/"version"\s*:\s*"[0-9.]+"/"version": "8.0.117"/' ~/grafana-opentelemetry-dotnet/global.json
+
+# Create a symlink for easy access
+ln -s ../grafana-opentelemetry-dotnet/examples/net8.0/aspnetcore ~/TodoApp
+cd TodoApp
+dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis
+dotnet add package AWSSDK.S3
+dotnet add package Microsoft.Data.SqlClient
 
 # Build to ensure all dependencies are resolved
 echo "Restoring dependencies and building app..."
 dotnet restore
 
-# Clean up the cloned repo to save space
-echo "Cleaning up the cloned repository..."
-cd ~/dotnet-app
-rm -rf grafana-opentelemetry-dotnet
-cd TodoApi
-
 # Create a startup script for the app with environment variables
-cat > ./start-app.sh << 'EOL'
+cat > ~/start-app.sh << 'EOL'
 #!/bin/bash
 set -e
 
@@ -129,7 +123,7 @@ export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
 export OTEL_EXPORTER_OTLP_PROTOCOL=grpc
 export ASPNETCORE_URLS=http://0.0.0.0:8080
 
-cd ~/dotnet-app/TodoApi
+cd ~/TodoApp
 dotnet run
 EOL
 
