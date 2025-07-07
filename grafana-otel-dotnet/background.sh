@@ -38,26 +38,43 @@ sudo sed -i -e '/^CUSTOM_ARGS=/s#".*"#"--server.http.listen-addr=0.0.0.0:12345"#
 declare -A VSIX_FILES=(
   ["grafana-alloy-0.2.0.vsix"]="https://github.com/grafana/vscode-alloy/releases/download/v0.2.0/grafana-alloy-0.2.0.vsix"
   ["dracula-theme.theme-dracula-2.25.1.vsix"]="https://open-vsx.org/api/dracula-theme/theme-dracula/2.25.1/file/dracula-theme.theme-dracula-2.25.1.vsix"
-  ["jdinhlife.gruvbox-1.28.0.vsix"]="https://open-vsx.org/api/jdinhlife/gruvbox/1.28.0/file/jdinhlife.gruvbox-1.28.0.vsix"
-  ["muhammad-sammy.csharp-1.27.0.vsix"]="https://open-vsx.org/api/muhammad-sammy/csharp/1.27.0/file/muhammad-sammy.csharp-1.27.0.vsix"
+  ["jdinhlife.gruvbox-1.28.0.vsix"]="https://open-vsx.org/api/jdinhlife/gruvbox/1.28.0/file/jdinhlife.gruvbox-1.28.0.vsix",
+  ["muhammad-sammy.csharp-2.80.16.vsix"]="https://open-vsx.org/api/muhammad-sammy/csharp/2.80.16/file/muhammad-sammy.csharp-2.80.16.vsix"
 )
 
 # Download each VSIX file
 for vsix_name in "${!VSIX_FILES[@]}"; do
   vsix_url="${VSIX_FILES[$vsix_name]}"
-  wget -q "$vsix_url" -O "downloads/$vsix_name"
-  echo "✅ Downloaded $vsix_name to $(pwd)/downloads"
+  echo "Downloading $vsix_name..."
+  if wget -q --show-progress "$vsix_url" -O "downloads/$vsix_name"; then
+    echo "✅ Downloaded $vsix_name to $(pwd)/downloads"
+    # Verify file integrity
+    if file "downloads/$vsix_name" | grep -q "Zip archive data"; then
+      echo "✅ File appears to be a valid zip archive"
+    else
+      echo "⚠️ Warning: $vsix_name does not appear to be a valid zip archive"
+    fi
+  else
+    echo "⚠️ Failed to download $vsix_name"
+  fi
 done
 
 # Move to downloads directory and unzip each VSIX file into the extensions directory
 cd downloads
 for vsix_file in *.vsix; do
   dir_name="${vsix_file%.vsix}"
+  mkdir -p ~/.theia/extensions/"$dir_name"
   echo "Unzipping $vsix_file into ~/.theia/extensions/$dir_name/"
-  if unzip -q "$vsix_file" -d ~/.theia/extensions/"$dir_name"; then
-    echo "✅ Successfully unzipped $vsix_file"
+  
+  # Try to verify if it's a valid zip file first
+  if zipinfo -1 "$vsix_file" &>/dev/null; then
+    if unzip -q "$vsix_file" -d ~/.theia/extensions/"$dir_name"; then
+      echo "✅ Successfully unzipped $vsix_file"
+    else
+      echo "⚠️ Failed to unzip $vsix_file - continuing with next extension"
+    fi
   else
-    echo "⚠️ Failed to unzip $vsix_file - continuing with next extension"
+    echo "⚠️ $vsix_file is not a valid zip file - skipping"
   fi
 done
 cd ..
