@@ -98,11 +98,8 @@ dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis
 dotnet add package AWSSDK.S3 --version 3.7.400
 dotnet add package Microsoft.Data.SqlClient
 
-# Fix the connection to redis
-perl -pi -e 's/ConnectionMultiplexer\.Connect\(".*?:6379"\)/ConnectionMultiplexer.Connect("127.0.0.1:6379")/' Program.cs
-
-# Fix the app so it can be connected to with port forwarding
-perl -pi -e 's|(var builder = WebApplication::CreateBuilder\(args\);)|$1\n\nbuilder.WebHost.UseUrls("http://0.0.0.0:5125");|' Program.cs
+# Fetch our working config and overwrite Program.cs with it
+wget -O Program.cs https://raw.githubusercontent.com/scarolan/killercoda/main/grafana-otel-dotnet/files/Program.cs
 
 # Build to ensure all dependencies are resolved
 echo "Restoring dependencies and building app..."
