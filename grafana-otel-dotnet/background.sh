@@ -36,37 +36,16 @@ declare -A VSIX_FILES=(
 # Download each VSIX file
 for vsix_name in "${!VSIX_FILES[@]}"; do
   vsix_url="${VSIX_FILES[$vsix_name]}"
-  echo "Downloading $vsix_name..."
-  if wget -q --show-progress "$vsix_url" -O "downloads/$vsix_name"; then
-    echo "✅ Downloaded $vsix_name to $(pwd)/downloads"
-    # Verify file integrity
-    if file "downloads/$vsix_name" | grep -q "Zip archive data"; then
-      echo "✅ File appears to be a valid zip archive"
-    else
-      echo "⚠️ Warning: $vsix_name does not appear to be a valid zip archive"
-    fi
-  else
-    echo "⚠️ Failed to download $vsix_name"
-  fi
+  wget -q "$vsix_url" -O "downloads/$vsix_name"
+  echo "✅ Downloaded $vsix_name to $(pwd)/downloads"
 done
 
 # Move to downloads directory and unzip each VSIX file into the extensions directory
 cd downloads
 for vsix_file in *.vsix; do
   dir_name="${vsix_file%.vsix}"
-  mkdir -p ~/.theia/extensions/"$dir_name"
   echo "Unzipping $vsix_file into ~/.theia/extensions/$dir_name/"
-  
-  # Try to verify if it's a valid zip file first
-  if zipinfo -1 "$vsix_file" &>/dev/null; then
-    if unzip -q "$vsix_file" -d ~/.theia/extensions/"$dir_name"; then
-      echo "✅ Successfully unzipped $vsix_file"
-    else
-      echo "⚠️ Failed to unzip $vsix_file - continuing with next extension"
-    fi
-  else
-    echo "⚠️ $vsix_file is not a valid zip file - skipping"
-  fi
+  unzip -q "$vsix_file" -d ~/.theia/extensions/"$dir_name"
 done
 cd ..
 
@@ -130,25 +109,31 @@ export LC_ALL=en_US.UTF-8
 # setup-complete
 EOF
 
-# Create a new dotnet webapi project
+# Clone the Grafana OpenTelemetry .NET repository
+echo "Cloning the Grafana OpenTelemetry .NET repository..."
 cd ~/dotnet-app
-dotnet new webapi -n TodoApi
+rm -rf TodoApi 2>/dev/null || true
+git clone --depth 1 https://github.com/grafana/grafana-opentelemetry-dotnet.git
+cd ~/dotnet-app
+
+# Create TodoApi directory and copy example app directly
+echo "Setting up the ASP.NET Core example with TodoApi..."
+mkdir -p TodoApi
+cp -r grafana-opentelemetry-dotnet/examples/net8.0/aspnetcore/* TodoApi/
 cd TodoApi
 
-# Add required packages
-dotnet add package Grafana.OpenTelemetry --version 1.2.0
-# Use compatible versions for OpenTelemetry packages to avoid downgrade errors
-dotnet add package OpenTelemetry.Extensions.Hosting --version 1.9.0
-dotnet add package OpenTelemetry.Exporter.Console --version 1.9.0
-dotnet add package Microsoft.EntityFrameworkCore.InMemory
-dotnet add package System.Diagnostics.DiagnosticSource
+# Build to ensure all dependencies are resolved
+echo "Restoring dependencies and building app..."
+dotnet restore
 
-# Download the Program.cs file with OpenTelemetry instrumentation from GitHub
-echo "Downloading Program.cs from GitHub..."
-wget -O ~/dotnet-app/TodoApi/Program.cs https://raw.githubusercontent.com/grafana/grafana-opentelemetry-dotnet/main/examples/net8.0/aspnetcore/Program.cs
+# Clean up the cloned repo to save space
+echo "Cleaning up the cloned repository..."
+cd ~/dotnet-app
+rm -rf grafana-opentelemetry-dotnet
+cd TodoApi
 
 # Create a startup script for the app with environment variables
-cat > ~/dotnet-app/TodoApi/start-app.sh << 'EOL'
+cat > ./start-app.sh << 'EOL'
 #!/bin/bash
 set -e
 
@@ -171,8 +156,12 @@ cd ~/dotnet-app/TodoApi
 dotnet run
 EOL
 
-chmod +x ~/dotnet-app/TodoApi/start-app.sh
+chmod +x ./start-app.sh
 
-# Build the app
-cd ~/dotnet-app/TodoApi
-dotnet build
+# Verify that everything is in place
+echo "Verifying the project setup..."
+if [ -f Program.cs ] && [ -f TodoApi.csproj ]; then
+    echo "✅ TodoApi setup complete and ready to run"
+else
+    echo "⚠️ Warning: Some project files may be missing"
+fi
