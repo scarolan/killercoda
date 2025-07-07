@@ -98,6 +98,9 @@ dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis
 dotnet add package AWSSDK.S3 --version 3.7.400
 dotnet add package Microsoft.Data.SqlClient
 
+# Fix the connection to redis
+perl -pi -e 's/ConnectionMultiplexer\.Connect\(".*?:6379"\)/ConnectionMultiplexer.Connect("127.0.0.1:6379")/' Program.cs
+
 # Build to ensure all dependencies are resolved
 echo "Restoring dependencies and building app..."
 dotnet restore
