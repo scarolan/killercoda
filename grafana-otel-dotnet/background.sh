@@ -103,6 +103,7 @@ echo "Restoring dependencies and building app..."
 dotnet restore
 
 # Create a startup script for the app with environment variables
+touch ~/start-app.sh
 cat > ~/start-app.sh << 'EOL'
 #!/bin/bash
 set -e
