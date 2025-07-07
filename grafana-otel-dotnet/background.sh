@@ -86,29 +86,6 @@ echo "colorscheme everforest" >> ~/.vimrc
 # Restart Alloy
 systemctl restart alloy
 
-# Enable fancy prompt
-wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
-cat <<'EOF' >> ~/.bashrc
-
-# -----------------------------------------------------------------------------
-# Set prompt based on terminal capabilities
-# If running inside Killercoda's Theia terminal (TERM=xterm-color),
-# fall back to a simpler ASCII prompt with basic colors to avoid font issues.
-# Otherwise, source a fancy Powerline-style prompt from ~/.fancy-prompt.sh
-# -----------------------------------------------------------------------------
-if [[ "$TERM" == "xterm-color" ]]; then
-  export PS1="\[\e[1;36m\]\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] \$ "
-else
-  source ~/.fancy-prompt.sh
-fi
-
-# Set locale
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-# setup-complete
-EOF
-
 # Clone the Grafana OpenTelemetry .NET repository
 echo "Cloning the Grafana OpenTelemetry .NET repository..."
 cd ~/dotnet-app
@@ -165,3 +142,26 @@ if [ -f Program.cs ] && [ -f TodoApi.csproj ]; then
 else
     echo "⚠️ Warning: Some project files may be missing"
 fi
+
+# Enable fancy prompt
+wget -O ~/.fancy-prompt.sh https://raw.githubusercontent.com/scarolan/fancy-linux-prompt/master/fancy-prompt.sh
+cat <<'EOF' >> ~/.bashrc
+
+# -----------------------------------------------------------------------------
+# Set prompt based on terminal capabilities
+# If running inside Killercoda's Theia terminal (TERM=xterm-color),
+# fall back to a simpler ASCII prompt with basic colors to avoid font issues.
+# Otherwise, source a fancy Powerline-style prompt from ~/.fancy-prompt.sh
+# -----------------------------------------------------------------------------
+if [[ "$TERM" == "xterm-color" ]]; then
+  export PS1="\[\e[1;36m\]\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] \$ "
+else
+  source ~/.fancy-prompt.sh
+fi
+
+# Set locale
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# setup-complete
+EOF
