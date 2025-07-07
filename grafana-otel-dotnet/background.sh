@@ -133,7 +133,7 @@ cd ~/TodoApp
 dotnet run
 EOL
 
-chmod +x ./start-app.sh
+chmod +x ~/start-app.sh
 
 # Verify that everything is in place
 echo "Verifying the project setup..."
