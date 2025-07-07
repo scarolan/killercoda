@@ -92,7 +92,7 @@ git clone https://github.com/grafana/grafana-opentelemetry-dotnet.git
 perl -pi -e 's/"version"\s*:\s*"[0-9.]+"/"version": "8.0.117"/' ~/grafana-opentelemetry-dotnet/global.json
 
 # Create a symlink for easy access
-ln -s ../grafana-opentelemetry-dotnet/examples/net8.0/aspnetcore ~/TodoApp
+ln -s ~/grafana-opentelemetry-dotnet/examples/net8.0/aspnetcore ~/TodoApp
 cd TodoApp
 dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis
 dotnet add package AWSSDK.S3
