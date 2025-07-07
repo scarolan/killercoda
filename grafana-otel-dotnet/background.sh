@@ -147,13 +147,6 @@ dotnet add package System.Diagnostics.DiagnosticSource
 echo "Downloading Program.cs from GitHub..."
 wget -O ~/dotnet-app/TodoApi/Program.cs https://raw.githubusercontent.com/grafana/grafana-opentelemetry-dotnet/main/examples/net8.0/aspnetcore/Program.cs
 
-# Check if the download was successful (file exists and has content)
-if [ ! -s ~/dotnet-app/TodoApi/Program.cs ]; then
-    echo "Failed to download Program.cs from GitHub, using local fallback..."
-    # Copy our local fallback file
-    cp /root/TodoApi-Program.cs ~/dotnet-app/TodoApi/Program.cs
-fi
-
 # Create a startup script for the app with environment variables
 cat > ~/dotnet-app/TodoApi/start-app.sh << 'EOL'
 #!/bin/bash
