@@ -84,6 +84,10 @@ echo "colorscheme everforest" >> ~/.vimrc
 # Restart Alloy
 systemctl restart alloy
 
+# Get our load generator script
+wget -O generate-activity.sh https://raw.githubusercontent.com/scarolan/killercoda/main/grafana-otel-dotnet/files/generate-activity.sh
+chmod +x generate-activity.sh
+
 # Clone the Grafana OpenTelemetry .NET repository
 echo "Cloning the Grafana OpenTelemetry .NET repository..."
 git clone https://github.com/grafana/grafana-opentelemetry-dotnet.git
@@ -124,7 +128,7 @@ export OTEL_SERVICE_NAME=dotnet-todoapi
 export OTEL_RESOURCE_ATTRIBUTES=deployment.environment=production
 export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
 export OTEL_EXPORTER_OTLP_PROTOCOL=grpc
-export ASPNETCORE_URLS=http://0.0.0.0:8080
+export ASPNETCORE_URLS=http://0.0.0.0:5125
 
 cd ~/TodoApp
 dotnet run

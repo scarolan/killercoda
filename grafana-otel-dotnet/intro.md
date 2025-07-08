@@ -33,9 +33,14 @@ The startup script sets the necessary environment variables:
 - OTEL_RESOURCE_ATTRIBUTES=deployment.environment=production
 - OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
 - OTEL_EXPORTER_OTLP_PROTOCOL=grpc
-- ASPNETCORE_URLS=http://0.0.0.0:8080
 
-Next, use the Killercoda port forwarder to open a new browser tab pointed at 8080, the port that the Todo API runs on. You can interact with the API using the Swagger UI, which is available at the root URL.
+Next, open a new Killercoda terminal tab and run the load generator script to create sample telemetry data. This script will continue to loop, generating activity until you stop it. You can stop it with `Ctrl+C` when you're done testing.
+
+```bash
+~/generate-activity.sh
+```{{exec}}
+
+You can also manually generate data using the Swagger UI. Open the Killercoda port forwarder to point a new browser tab at port 5125.
 
 To generate sample telemetry data, try the following:
 - Browse the Swagger UI to explore available endpoints
