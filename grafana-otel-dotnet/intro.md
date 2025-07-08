@@ -39,11 +39,9 @@ Next, use the Killercoda port forwarder to open a new browser tab pointed at 808
 
 To generate sample telemetry data, try the following:
 - Browse the Swagger UI to explore available endpoints
-- View all todos at `/todoitems`
-- Add new todos via POST
-- Update or delete existing todos
-- Use the `/generate-load` endpoint to create random activity
-- Try the `/error` endpoint to generate error telemetry
+- Try out the endpoints in the Todo section of the UI
+- Add a todo list item
+- GET the list from /api/todo/items
 
 While the app is running, you can observe:
 - Auto-instrumentation of ASP.NET Core requests and responses
