@@ -9,7 +9,7 @@ YELLOW='\033[0;33m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
-API_URL="http://localhost:8080"
+API_URL="http://localhost:5125"
 CREATED_IDS=()
 
 echo -e "${CYAN}Starting TodoAPI activity generator...${NC}"
