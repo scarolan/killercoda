@@ -97,6 +97,7 @@ datasources:
     access: proxy
     isDefault: true
     editable: true
+    uid: PD8C576611E62080A
 EOF
 
 # Add Prometheus data source as backup
