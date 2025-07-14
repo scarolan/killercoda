@@ -1,0 +1,14 @@
+{
+  "title": "🔥Extreme Dashboarding Workshop",
+  "description": "Learn how to transform a basic dashboard into a professional, user-friendly visualization that effectively communicates your data. Practice applying dashboard design principles and Grafana's visualization capabilities.",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh",
+      "foreground": "foreground.sh"
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
