@@ -25,9 +25,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
+  "id": 2,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -46,6 +45,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -78,8 +78,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -106,10 +105,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "alias": "Ashburn",
@@ -198,8 +199,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -229,6 +229,7 @@
         },
         "showHeader": true
       },
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "alias": "",
@@ -262,6 +263,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -292,8 +294,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -336,10 +337,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "alias": "Carts",
@@ -454,8 +457,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "orange",
-                "value": null
+                "color": "orange"
               },
               {
                 "color": "yellow",
@@ -483,6 +485,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -494,9 +497,10 @@
         "textMode": "auto",
         "wideLayout": true
       },
+      "pluginVersion": "12.0.2",
       "targets": [
         {
-          "csvContent": "\"Time\",\"geoip_country_code\",\"Value #Hits by Geolocation\"\r\n$__from,AE,11\r\n$__from,AL,1\r\n$__from,AO,4\r\n$__from,AP,7\r\n$__from,AT,3\r\n$__from,AU,18\r\n$__from,AZ,1\r\n$__from,BD,8\r\n$__from,BE,6\r\n$__from,BH,2\r\n$__from,BN,1\r\n$__from,BR,1\r\n$__from,BY,1\r\n$__from,CA,6713\r\n$__from,CH,3\r\n$__from,CN,378\r\n$__from,CO,1\r\n$__from,CR,1\r\n$__from,CU,1\r\n$__from,CY,3626\r\n$__from,CZ,1\r\n$__from,DE,1058\r\n$__from,DK,1\r\n$__from,DO,4\r\n$__from,DZ,11\r\n$__from,EG,16\r\n$__from,ES,7\r\n$__from,ET,10\r\n$__from,EU,5\r\n$__from,FI,2\r\n$__from,FR,8\r\n$__from,GB,43\r\n$__from,GE,5\r\n$__from,GH,5\r\n$__from,GR,4\r\n$__from,HK,7\r\n$__from,HR,2\r\n$__from,HU,5\r\n$__from,IE,3\r\n$__from,IL,2\r\n$__from,IN,38\r\n$__from,IQ,5\r\n$__from,IR,3\r\n$__from,IT,16\r\n$__from,JO,1\r\n$__from,JP,6\r\n$__from,KE,1\r\n$__from,KH,4\r\n$__from,KR,4\r\n$__from,LB,2\r\n$__from,LT,2\r\n$__from,LV,1\r\n$__from,LY,2\r\n$__from,MA,4\r\n$__from,MD,2\r\n$__from,MN,1\r\n$__from,MU,2\r\n$__from,MX,1\r\n$__from,MY,4\r\n$__from,MZ,4\r\n$__from,NG,11\r\n$__from,NL,3550\r\n$__from,NO,2\r\n$__from,NP,5\r\n$__from,NZ,2\r\n$__from,OM,1\r\n$__from,PE,1\r\n$__from,PH,22\r\n$__from,PK,29\r\n$__from,PL,13\r\n$__from,PT,3\r\n$__from,QA,2\r\n$__from,RE,1\r\n$__from,RO,2\r\n$__from,RS,1\r\n$__from,RU,906\r\n$__from,SE,6\r\n$__from,SG,1234\r\n$__from,SI,1\r\n$__from,SK,1\r\n$__from,SY,1\r\n$__from,TN,2\r\n$__from,TR,19\r\n$__from,TW,3\r\n$__from,TZ,6\r\n$__from,UA,7\r\n$__from,UG,1\r\n$__from,US,8850\r\n$__from,UY,1\r\n$__from,VE,1\r\n$__from,VN,19\r\n$__from,ZA,14\r\n$__from,ZM,3\r\n$__from,ZW,5",
+          "csvContent": "\"Time\",\"geoip_country_code\",\"Value #Hits by Geolocation\"\r\n$__from,AE,11\r\n$__from,AL,1\r\n$__from,AO,4\r\n$__from,AP,7\r\n$__from,AT,3\r\n$__from,AU,18\r\n$__from,AZ,1\r\n$__from,BD,8\r\n$__from,BE,6\r\n$__from,BH,2\r\n$__from,BN,1\r\n$__from,BR,1\r\n$__from,BY,1\r\n$__from,CA,6713\r\n$__from,CH,3\r\n$__from,CN,3789\r\n$__from,CO,1\r\n$__from,CR,1\r\n$__from,CU,1\r\n$__from,CY,3626\r\n$__from,CZ,1\r\n$__from,DE,1058\r\n$__from,DK,1\r\n$__from,DO,4\r\n$__from,DZ,11\r\n$__from,EG,16\r\n$__from,ES,7\r\n$__from,ET,10\r\n$__from,EU,5\r\n$__from,FI,2\r\n$__from,FR,8\r\n$__from,GB,43\r\n$__from,GE,5\r\n$__from,GH,5\r\n$__from,GR,4\r\n$__from,HK,7\r\n$__from,HR,2\r\n$__from,HU,5\r\n$__from,IE,3\r\n$__from,IL,2\r\n$__from,IN,38\r\n$__from,IQ,5\r\n$__from,IR,3\r\n$__from,IT,16\r\n$__from,JO,1\r\n$__from,JP,6\r\n$__from,KE,1\r\n$__from,KH,4\r\n$__from,KR,4\r\n$__from,LB,2\r\n$__from,LT,2\r\n$__from,LV,1\r\n$__from,LY,2\r\n$__from,MA,4\r\n$__from,MD,2\r\n$__from,MN,1\r\n$__from,MU,2\r\n$__from,MX,1\r\n$__from,MY,4\r\n$__from,MZ,4\r\n$__from,NG,11\r\n$__from,NL,3550\r\n$__from,NO,2\r\n$__from,NP,5\r\n$__from,NZ,8\r\n$__from,OM,1\r\n$__from,PE,1\r\n$__from,PH,22\r\n$__from,PK,29\r\n$__from,PL,13\r\n$__from,PT,3\r\n$__from,QA,2\r\n$__from,RE,1\r\n$__from,RO,2\r\n$__from,RS,1\r\n$__from,RU,906\r\n$__from,SE,6\r\n$__from,SG,1234\r\n$__from,SI,1\r\n$__from,SK,1\r\n$__from,SY,1\r\n$__from,TN,2\r\n$__from,TR,19\r\n$__from,TW,3\r\n$__from,TZ,6\r\n$__from,UA,7\r\n$__from,UG,1\r\n$__from,US,8850\r\n$__from,UY,1\r\n$__from,VE,1\r\n$__from,VN,19\r\n$__from,ZA,14\r\n$__from,ZM,3\r\n$__from,ZW,5",
           "datasource": {
             "type": "grafana-testdata-datasource",
             "uid": "PD8C576611E62080A"
@@ -526,6 +530,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -556,8 +561,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -584,10 +588,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "alias": "Web Replica 1",
@@ -645,8 +651,9 @@
       "type": "timeseries"
     }
   ],
+  "preload": false,
   "refresh": "",
-  "schemaVersion": 39,
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": []
@@ -657,8 +664,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Quick Dashboard Makeover",
-  "uid": "nAd67as8k",
-  "version": 7,
-  "weekStart": ""
+  "title": "🪂 Overcharge - Delirium XTreme Dashboarding",
+  "uid": "12345",
+  "version": 1
 }
