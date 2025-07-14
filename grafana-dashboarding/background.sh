@@ -118,7 +118,7 @@ mkdir -p /var/lib/grafana/dashboards
 
 # Download the dashboard JSON for the workshop
 mkdir -p /var/lib/grafana/dashboards
-wget -q -O /var/lib/grafana/dashboards/home-dashboard.json https://raw.githubusercontent.com/grafana/quick-dashboard-makeover/refs/heads/main/RAW%20JSON%20dashboards/Quick%20Dashboard%20Makeover.json
+wget -q -O /var/lib/grafana/dashboards/home-dashboard.json https://raw.githubusercontent.com/scarolan/killercoda/refs/heads/main/grafana-dashboarding/dashboards/home-dashboard.json
 
 # Create a provisioning file for the home dashboard
 cat <<EOF > /etc/grafana/provisioning/dashboards/home-dashboard.yaml
