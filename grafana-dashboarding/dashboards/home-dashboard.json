@@ -233,7 +233,7 @@
       "targets": [
         {
           "alias": "",
-          "csvContent": "\"Time\",\"__name__\",\"app\",\"cluster\",\"container\",\"instance\",\"job\",\"namespace\",\"pod\",\"Value\"\r\n$__from,up,sockshop,se-demo-cluster,carts,carts-696c79c787-4ch5w:carts:http-metrics,development/carts,development,carts-696c79c787-4ch5w,1\r\n$__from,up,sockshop,se-demo-cluster,catalogue,catalogue-79ff77d774-75wxd:catalogue:http-metrics,development/catalogue,development,catalogue-79ff77d774-75wxd,1\r\n$__from,up,sockshop,se-demo-cluster,front-end,front-end-57847c7474-jc65q:front-end:http-metrics,development/front-end,development,front-end-57847c7474-jc65q,0\r\n$__from,up,sockshop,se-demo-cluster,orders,orders-57777676dc-5255w:orders:http-metrics,development/orders,development,orders-57777676dc-5255w,1\r\n$__from,up,sockshop,se-demo-cluster,payment,payment-5c88cf8fdc-86zfp:payment:http-metrics,development/payment,development,payment-5c88cf8fdc-86zfp,1\r\n$__from,up,sockshop,se-demo-cluster,queue-master,queue-master-748566765-7vzlb:queue-master:http-metrics,development/queue-master,development,queue-master-748566765-7vzlb,0\r\n$__from,up,sockshop,se-demo-cluster,shipping,shipping-65668bd98b-nz82b:shipping:http-metrics,development/shipping,development,shipping-65668bd98b-nz82b,1\r\n$__from,up,sockshop,se-demo-cluster,user,user-7fdcd646dc-xvjjv:user:http-metrics,development/user,development,user-7fdcd646dc-xvjjv,1",
+          "csvContent": "\"Time\",\"__name__\",\"app\",\"cluster\",\"container\",\"instance\",\"job\",\"namespace\",\"pod\",\"Value\"\r\n$__from,up,overdrive,se-demo-cluster,carts,carts-696c79c787-4ch5w:carts:http-metrics,development/carts,development,carts-696c79c787-4ch5w,1\r\n$__from,up,overdrive,se-demo-cluster,catalogue,catalogue-79ff77d774-75wxd:catalogue:http-metrics,development/catalogue,development,catalogue-79ff77d774-75wxd,1\r\n$__from,up,overdrive,se-demo-cluster,front-end,front-end-57847c7474-jc65q:front-end:http-metrics,development/front-end,development,front-end-57847c7474-jc65q,0\r\n$__from,up,overdrive,se-demo-cluster,orders,orders-57777676dc-5255w:orders:http-metrics,development/orders,development,orders-57777676dc-5255w,1\r\n$__from,up,overdrive,se-demo-cluster,payment,payment-5c88cf8fdc-86zfp:payment:http-metrics,development/payment,development,payment-5c88cf8fdc-86zfp,1\r\n$__from,up,overdrive,se-demo-cluster,queue-master,queue-master-748566765-7vzlb:queue-master:http-metrics,development/queue-master,development,queue-master-748566765-7vzlb,0\r\n$__from,up,overdrive,se-demo-cluster,shipping,shipping-65668bd98b-nz82b:shipping:http-metrics,development/shipping,development,shipping-65668bd98b-nz82b,1\r\n$__from,up,overdrive,se-demo-cluster,user,user-7fdcd646dc-xvjjv:user:http-metrics,development/user,development,user-7fdcd646dc-xvjjv,1",
           "datasource": {
             "type": "grafana-testdata-datasource",
             "uid": "PD8C576611E62080A"
@@ -438,7 +438,7 @@
           "startValue": 5
         }
       ],
-      "title": "Latency for Sockshop App",
+      "title": "Latency for Overdrive App",
       "type": "timeseries"
     },
     {
