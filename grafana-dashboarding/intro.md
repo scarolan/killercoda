@@ -24,6 +24,6 @@ Grafana login credentials:
 In this workshop, you'll learn how to transform a basic dashboard into a professional, user-friendly visualization that effectively communicates your data. You'll practice applying dashboard design principles and Grafana's visualization capabilities to create clear, informative, and visually appealing dashboards.
 
 Follow along with the workshop instructions here:
-[Quick Dashboard Makeover Lab](https://github.com/grafana/quick-dashboard-makeover/blob/main/Exercices/1%20Quick-dashboard-makeover.md)
+[Quick Dashboard Makeover Lab](https://github.com/scarolan/quick-dashboard-makeover/blob/main/Labs/01_ExtremeDashboard.md)
 
 Happy dashboarding! 🎉
