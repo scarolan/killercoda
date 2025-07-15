@@ -124,7 +124,7 @@ wget -q -O /var/lib/grafana/dashboards/home-dashboard.json https://raw.githubuse
 cat <<EOF > /etc/grafana/provisioning/dashboards/home-dashboard.yaml
 apiVersion: 1
 providers:
-  - name: 'Home Dashboard'
+  - name: 'Overcharge SRE Dashboard - Original'
     type: file
     disableDeletion: false
     updateIntervalSeconds: 10
