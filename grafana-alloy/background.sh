@@ -22,6 +22,7 @@ declare -A VSIX_FILES=(
   ["grafana-alloy-0.2.0.vsix"]="https://github.com/grafana/vscode-alloy/releases/download/v0.2.0/grafana-alloy-0.2.0.vsix"
   ["dracula-theme.theme-dracula-2.25.1.vsix"]="https://open-vsx.org/api/dracula-theme/theme-dracula/2.25.1/file/dracula-theme.theme-dracula-2.25.1.vsix"
   ["jdinhlife.gruvbox-1.28.0.vsix"]="https://open-vsx.org/api/jdinhlife/gruvbox/1.28.0/file/jdinhlife.gruvbox-1.28.0.vsix"
+  []["jeff-hykin.better-shellscript-syntax-1.10.0.vsix"]="https://open-vsx.org/api/jeff-hykin/better-shellscript-syntax/1.10.0/file/jeff-hykin.better-shellscript-syntax-1.10.0.vsix"
 )
 
 # Download each VSIX file
